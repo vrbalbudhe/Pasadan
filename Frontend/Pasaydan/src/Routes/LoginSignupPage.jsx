@@ -2,6 +2,9 @@
 /* eslint-disable no-unused-vars */
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useAuth } from "../Contexts/AuthContext";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import icons for eye
 import React, { useState, useEffect } from "react";
 import { FaEye, FaEyeSlash, FaCheckCircle } from "react-icons/fa"; // Import icons for eye and checkmark
 
@@ -130,7 +133,11 @@ const LoginSignupPage = () => {
     let strength = "";
     if (password.length < 6) {
       strength = "weak";
-    } else if (password.length >= 6 && /[A-Z]/.test(password) && /\d/.test(password)) {
+    } else if (
+      password.length >= 6 &&
+      /[A-Z]/.test(password) &&
+      /\d/.test(password)
+    ) {
       strength = "strong";
     } else {
       strength = "medium";
@@ -175,7 +182,9 @@ const LoginSignupPage = () => {
         </div>
 
         {/* Form Section */}
-        <div className={`w-full md:w-1/2 p-8 transition-all duration-700 ease-in-out ${isLogin ? "" : "-translate-x-full"}`}>
+        <div
+          className={`w-full md:w-1/2 p-8 transition-all duration-700 ease-in-out ${isLogin ? "" : "-translate-x-full"}`}
+        >
           {isLogin ? (
             <>
               <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
@@ -226,7 +235,10 @@ const LoginSignupPage = () => {
               </form>
               <p className="text-center mt-4 text-gray-500">
                 Don't have an account?
-                <button onClick={toggleForm} className="ml-2 text-blue-500 hover:underline">
+                <button
+                  onClick={toggleForm}
+                  className="ml-2 text-blue-500 hover:underline"
+                >
                   Sign Up
                 </button>
               </p>
@@ -343,19 +355,22 @@ const LoginSignupPage = () => {
                         passwordStrength === "weak"
                           ? "text-red-500"
                           : passwordStrength === "medium"
-                          ? "text-yellow-500"
-                          : "text-green-500"
+                            ? "text-yellow-500"
+                            : "text-green-500"
                       }`}
                     >
                       {passwordStrength === "weak" && "Password is too weak"}
-                      {passwordStrength === "medium" && "Make your password stronger"}
+                      {passwordStrength === "medium" &&
+                        "Make your password stronger"}
                       {passwordStrength === "strong" && "Password is strong"}
                     </p>
                   )}
                 </div>
 
                 <div className="mb-4 relative">
-                  <label className="block text-gray-700">Confirm Password</label>
+                  <label className="block text-gray-700">
+                    Confirm Password
+                  </label>
                   <input
                     type={showConfirmPassword ? "text" : "password"} // Toggle between text and password
                     name="confirmPassword"
@@ -372,7 +387,9 @@ const LoginSignupPage = () => {
                     {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
                   </span>
                   {!passwordMatch && (
-                    <p className="text-red-500 text-sm mt-2">Passwords do not match.</p>
+                    <p className="text-red-500 text-sm mt-2">
+                      Passwords do not match.
+                    </p>
                   )}
                 </div>
 
@@ -398,7 +415,10 @@ const LoginSignupPage = () => {
 
               <p className="text-center mt-4 text-gray-500">
                 Already have an account?
-                <button onClick={toggleForm} className="ml-2 text-green-500 hover:underline">
+                <button
+                  onClick={toggleForm}
+                  className="ml-2 text-green-500 hover:underline"
+                >
                   Login
                 </button>
               </p>
