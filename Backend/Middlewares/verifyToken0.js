@@ -2,15 +2,8 @@ const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
 
 const verifyToken = asyncHandler(async (req, res, next) => {
-  // Ensure that req.cookies is defined
-  if (!req.cookies) {
-    return res.status(401).json({
-      message: "User is Not Authenticated - Cookies missing",
-      success: false,
-    });
-  }
-
-  const token = req.cookies.token;
+  const token = req.cookies?.token;
+  console.log(token);
   if (!token) {
     return res.status(401).json({
       message: "User is Not Authenticated",
@@ -31,9 +24,10 @@ const verifyToken = asyncHandler(async (req, res, next) => {
         success: false,
       });
     }
+
     req.userId = payload.userId;
     next();
   });
 });
 
-module.exports = verifyToken;
+module.exports = { verifyToken };

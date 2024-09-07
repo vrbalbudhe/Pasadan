@@ -1,7 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Layout from "./Routes/Layout";
+import { Layout, RequiredAuth } from "./Routes/Layout";
 import Homepage from "./Routes/Homepage";
 import LoginSignupPage from "./Routes/LoginSignupPage";
+import Dashboard from "./Routes/Dashboard";
 function App() {
   const router = createBrowserRouter([
     {
@@ -11,6 +12,16 @@ function App() {
         {
           path: "/",
           element: <Homepage />,
+        },
+      ],
+    },
+    {
+      path: "/",
+      element: <RequiredAuth />,
+      children: [
+        {
+          path: "/dashboard",
+          element: <Dashboard />,
         },
       ],
     },

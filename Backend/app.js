@@ -13,10 +13,9 @@ const corsOptions = {
 
 require("./Jobs/CronJob Cleanup");
 const authRoutes = require("./Routes/Auth.Routes");
-const IndividualRoutes = require("./Routes/Individual.Routes");
 const CertificateRoutes = require("./Routes/Certificate.Routes");
 
-app.use(cors(corsOptions)); // CORS should be before the routes
+app.use(cors(corsOptions)); 
 app.use(
   helmet({
     contentSecurityPolicy: {
@@ -32,7 +31,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/pasaydan/auth/", authRoutes);
-app.use("/pasaydan/t/", IndividualRoutes);
 app.use("/pasaydan/user/", CertificateRoutes);
 
 const port = 8000;
