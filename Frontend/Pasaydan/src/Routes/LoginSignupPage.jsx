@@ -2,8 +2,8 @@
 /* eslint-disable no-unused-vars */
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import React, { useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import icons for eye
+import React, { useState, useEffect } from "react";
+import { FaEye, FaEyeSlash, FaCheckCircle } from "react-icons/fa"; // Import icons for eye and checkmark
 
 const LoginSignupPage = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -13,10 +13,26 @@ const LoginSignupPage = () => {
   const [passwordMatch, setPasswordMatch] = useState(true);
   const [error, setError] = useState("");
   const [otpSent, setOtpSent] = useState(false);
+  const [otpVerified, setOtpVerified] = useState(false); // State for OTP verification
+  const [emailVerified, setEmailVerified] = useState(false); // State to handle email verification
   const [showPassword, setShowPassword] = useState(false); // Toggle state for password visibility
   const [showConfirmPassword, setShowConfirmPassword] = useState(false); // Toggle state for confirm password visibility
   const [showPopup, setShowPopup] = useState(false);
+  const [resendTimeout, setResendTimeout] = useState(15); // Timer for OTP resend
+  const [otp, setOtp] = useState("");
+  const [email, setEmail] = useState(""); // Store email input
   const navigate = useNavigate();
+
+  // Timer for the "Resend OTP" button
+  useEffect(() => {
+    let timer;
+    if (otpSent && resendTimeout > 0) {
+      timer = setTimeout(() => {
+        setResendTimeout(resendTimeout - 1);
+      }, 1000);
+    }
+    return () => clearTimeout(timer);
+  }, [otpSent, resendTimeout]);
 
   const handleLogin = async (e) => {
     setError("");
@@ -59,7 +75,6 @@ const LoginSignupPage = () => {
       setPasswordMatch(true);
     }
 
-    setOtpSent(true);
     setShowPopup(true);
     setTimeout(() => {
       setShowPopup(false);
@@ -83,6 +98,28 @@ const LoginSignupPage = () => {
     } catch (error) {
       setError(error.message);
     }
+  };
+
+  const handleOtpSubmit = () => {
+    // Simulate OTP verification animation
+    setOtpVerified(true);
+    setTimeout(() => {
+      setOtpVerified(false); // Reset animation after showing it for a while
+      setEmailVerified(true); // Show email verified after OTP verification
+      setOtpSent(false); // Hide OTP input and resend button after verification
+    }, 3000);
+  };
+
+  const handleEmailVerification = () => {
+    // Simulate sending OTP
+    setOtpSent(true);
+    setResendTimeout(15); // Reset the timer to 15 seconds
+  };
+
+  const handleResendOtp = () => {
+    // Resend OTP function
+    setResendTimeout(15);
+    setOtp("");
   };
 
   const toggleForm = () => {
@@ -208,16 +245,81 @@ const LoginSignupPage = () => {
                     required
                   />
                 </div>
-                <div className="mb-4">
-                  <label className="block text-gray-700">Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-                    placeholder="Enter your email"
-                    required
-                  />
+
+                <div className="mb-4 flex">
+                  <div className="flex-grow mr-2">
+                    <label className="block text-gray-700">Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                      placeholder="Enter your email"
+                      required
+                      disabled={emailVerified} // Lock the email field after verification
+                    />
+                  </div>
+                  {emailVerified ? (
+                    <FaCheckCircle className="text-green-500 text-2xl mt-8" />
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={handleEmailVerification}
+                      className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-200 mt-7"
+                      disabled={otpSent} // Disable the button after clicking once
+                    >
+                      Verify Email
+                    </button>
+                  )}
                 </div>
+
+                {otpSent && !emailVerified && (
+                  <>
+                    <div className="mb-4 flex">
+                      <div className="flex-grow mr-2">
+                        <label className="block text-gray-700">OTP</label>
+                        <input
+                          type="text"
+                          name="otp"
+                          value={otp}
+                          onChange={(e) => setOtp(e.target.value)}
+                          className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                          placeholder="Enter OTP"
+                          disabled={emailVerified} // Lock OTP field after verification
+                        />
+                      </div>
+                      <button
+                        type="button"
+                        onClick={handleOtpSubmit}
+                        className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-200 mt-7"
+                        disabled={emailVerified} // Disable button after verification
+                      >
+                        Submit OTP
+                      </button>
+                    </div>
+                    <div className="mb-4">
+                      {resendTimeout > 0 ? (
+                        <p className="text-gray-500">Resend OTP in {resendTimeout}s</p>
+                      ) : (
+                        <button
+                          onClick={handleResendOtp}
+                          className="text-blue-500 hover:underline"
+                          disabled={emailVerified} // Disable resend button after verification
+                        >
+                          Resend OTP
+                        </button>
+                      )}
+                    </div>
+                  </>
+                )}
+
+                {otpVerified && (
+                  <div className="fixed top-5 right-5 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg">
+                    OTP Verified Successfully!
+                  </div>
+                )}
+
                 <div className="mb-4 relative">
                   <label className="block text-gray-700">Password</label>
                   <input
@@ -251,6 +353,7 @@ const LoginSignupPage = () => {
                     </p>
                   )}
                 </div>
+
                 <div className="mb-4 relative">
                   <label className="block text-gray-700">Confirm Password</label>
                   <input
@@ -273,15 +376,9 @@ const LoginSignupPage = () => {
                   )}
                 </div>
 
-                {otpSent && (
-                  <div className="mb-4">
-                    <label className="block text-gray-700">OTP</label>
-                    <input
-                      type="text"
-                      name="otp"
-                      className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-                      placeholder="Enter the OTP sent to your email"
-                    />
+                {otpVerified && (
+                  <div className="fixed top-5 right-5 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg">
+                    OTP Verified Successfully!
                   </div>
                 )}
 
