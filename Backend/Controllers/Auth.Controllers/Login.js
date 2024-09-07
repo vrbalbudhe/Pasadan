@@ -22,6 +22,7 @@ const schema = Joi.object({
 const Login = asyncHandler(async (req, res) => {
   const { error } = schema.validate(req.body);
   if (error) {
+    console.log(error);
     return res.status(400).json({
       message: error.details[0].message,
       success: false,
@@ -30,14 +31,15 @@ const Login = asyncHandler(async (req, res) => {
 
   try {
     const { email, password } = req.body;
-
+    const userEmail = String(email);
     const user = await prisma.user.findUnique({
       where: {
-        email,
+        email: userEmail,
       },
     });
 
     if (!user) {
+      console.log("here error");
       return res.status(404).json({
         message: "User does not exist.",
         success: false,
