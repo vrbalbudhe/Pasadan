@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import pasaydanLogo from "../assets/pixelcut-export.png";
 
 function Navbar() {
@@ -6,6 +7,7 @@ function Navbar() {
   const handlePlusSign = () => {
     setAddPlus((prev) => !prev);
   };
+  const navigate = useNavigate();
   return (
     <nav className="w-full h-14 border-b border-l border-r shadow-md bg-white text-slate-900 flex justify-between items-center px-8">
       {/* Logo and Title */}
@@ -38,11 +40,11 @@ function Navbar() {
 
       {/* Action Buttons */}
       <div className="w-[20%] flex items-center justify-center space-x-4">
-        <button className="px-2 py-1 bg-gray-200 text-xs font-semibold rounded-md hover:bg-blue-500 hover:text-white transition-all duration-300">
-          Register
-        </button>
-        <button className="px-2 py-1 bg-gray-200 text-xs font-semibold rounded-md hover:bg-blue-500 hover:text-white transition-all duration-300">
-          Login
+        <button
+           onClick={() => navigate("/auth")}
+          className="px-2 py-1 bg-gray-200 text-xs font-semibold rounded-md hover:bg-blue-500 hover:text-white transition-all duration-300"
+        >
+          SignIn / SignUp
         </button>
       </div>
     </nav>

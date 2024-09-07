@@ -12,11 +12,11 @@ function App() {
           path: "/",
           element: <Homepage />,
         },
-        {
-          path: "/auth",
-          element: <LoginSignupPage />,
-        },
       ],
+    },
+    {
+      path: "/auth",
+      element: <LoginSignupPage />,
     },
   ]);
 

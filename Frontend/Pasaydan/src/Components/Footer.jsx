@@ -4,57 +4,58 @@ import { IoLogoWhatsapp } from "react-icons/io5";
 import { BsTwitterX } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa";
 import { MdOutlineMailOutline } from "react-icons/md";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 function Footer() {
-  const [workTitle, setWorkTitle] = useState("");
-  const [image, setImage] = useState("");
   const titleOurWorkAdvertisementDirectory = [
     "Baby Care Items Donations",
     "GROCERY KIT DONATION",
     "Cycles Donation Drive",
     "Medical Help To Needy",
   ];
+
   const imageOurWorkAdvertisementDirectory = [
     "https://i.pinimg.com/564x/18/7d/cb/187dcb647d4ef8066bdbede8254ecfe0.jpg",
     "https://i.pinimg.com/564x/01/29/dc/0129dcb6e5e6eebe41df08512a06fa6e.jpg",
     "https://i.pinimg.com/564x/11/24/dc/1124dc4920f0bd18381cbcb88c3adbbf.jpg",
     "https://i.pinimg.com/564x/ab/d9/8d/abd98df87cffc6e9e1252e01d83b6947.jpg",
   ];
-  const titleOurWorkAdvertisement = () => {
+
+  const [workTitle, setWorkTitle] = useState(
+    titleOurWorkAdvertisementDirectory[0]
+  );
+  const [image, setImage] = useState(imageOurWorkAdvertisementDirectory[0]);
+
+  const intervalRef = useRef(null);
+
+  const cycleAdvertisements = () => {
     let index = 0;
-    setInterval(() => {
-      setWorkTitle(() => {
-        if (index >= titleOurWorkAdvertisementDirectory.length) {
-          index = 0;
-        }
-        return titleOurWorkAdvertisementDirectory[index++];
-      });
-    }, 5000);
-  };
-  const imageOurWorkAdvertisement = () => {
-    let index = 0;
-    setInterval(() => {
-      setImage(() => {
-        if (index >= imageOurWorkAdvertisementDirectory.length) {
-          index = 0;
-        }
-        return imageOurWorkAdvertisementDirectory[index++];
-      });
+    intervalRef.current = setInterval(() => {
+      index = (index + 1) % titleOurWorkAdvertisementDirectory.length;
+
+      setWorkTitle(titleOurWorkAdvertisementDirectory[index]);
+      setImage(imageOurWorkAdvertisementDirectory[index]);
     }, 5000);
   };
 
   useEffect(() => {
-    titleOurWorkAdvertisement();
-    imageOurWorkAdvertisement();
+    cycleAdvertisements();
+
+    return () => clearInterval(intervalRef.current);
   }, []);
+
   return (
     <div className="w-full bg-white h-80 flex flex-col justify-center items-center p-2 border-r border-l border-t shadow-xl">
       <div className="w-full h-[80%] flex justify-center items-center">
+        {/* Logo and Title Section */}
         <div className="w-[30%] h-full p-2">
           <div className="w-full h-[50%] flex flex-col justify-center items-center">
             <div className="w-full h-full flex justify-center items-center gap-2">
-              <img className="w-10 h-10" src={pasaydanLogo} alt="" />
+              <img
+                className="w-10 h-10"
+                src={pasaydanLogo}
+                alt="Pasaydan Logo"
+              />
               <p className="text-slate-900 font-semibold">Pasaydan</p>
             </div>
             <p className="font-semibold text-slate-700 text-sm">
@@ -70,51 +71,57 @@ function Footer() {
             </p>
           </div>
         </div>
+
+        {/* Navigation Links */}
         <div className="w-[10%] h-full flex justify-center items-center p-2">
           <ul className="font-semibold text-slate-700 text-xs flex flex-col gap-1">
-            <li className=" cursor-pointer hover:text-slate-800 hover:underline">
+            <li className="cursor-pointer hover:text-slate-800 hover:underline">
               Home
             </li>
-            <li className=" cursor-pointer hover:text-slate-800 hover:underline">
+            <li className="cursor-pointer hover:text-slate-800 hover:underline">
               Drive
             </li>
-            <li className=" cursor-pointer hover:text-slate-800 hover:underline">
+            <li className="cursor-pointer hover:text-slate-800 hover:underline">
               Resources
             </li>
-            <li className=" cursor-pointer hover:text-slate-800 hover:underline">
+            <li className="cursor-pointer hover:text-slate-800 hover:underline">
               Feedback
             </li>
-            <li className=" cursor-pointer hover:text-slate-800 hover:underline">
+            <li className="cursor-pointer hover:text-slate-800 hover:underline">
               Contact Us
             </li>
-            <li className=" cursor-pointer hover:text-slate-800 hover:underline">
+            <li className="cursor-pointer hover:text-slate-800 hover:underline">
               About
             </li>
           </ul>
         </div>
+
+        {/* Register, Login, etc. */}
         <div className="w-[10%] h-full flex justify-center items-center p-2">
           <ul className="font-semibold text-slate-700 text-xs flex flex-col gap-1">
-            <li className=" cursor-pointer hover:text-slate-800 hover:underline">
+            <li className="cursor-pointer hover:text-slate-800 hover:underline">
               Register
             </li>
-            <li className=" cursor-pointer hover:text-slate-800 hover:underline">
+            <li className="cursor-pointer hover:text-slate-800 hover:underline">
               Login
             </li>
-            <li className=" cursor-pointer hover:text-slate-800 hover:underline">
+            <li className="cursor-pointer hover:text-slate-800 hover:underline">
               Founders
             </li>
-            <li className=" cursor-pointer hover:text-slate-800 hover:underline">
+            <li className="cursor-pointer hover:text-slate-800 hover:underline">
               Social Media
             </li>
-            <li className=" cursor-pointer hover:text-slate-800 hover:underline">
+            <li className="cursor-pointer hover:text-slate-800 hover:underline">
               Privacy-Policy
             </li>
           </ul>
         </div>
+
+        {/* Contact Section */}
         <div className="w-[20%] h-full p-2">
           <div className="w-full h-1/2 flex flex-col justify-center items-center p-2">
             <div className="w-full h-1/2 flex justify-start items-center">
-              <p className="font-semibold text-xs text-slate-800">
+              <p className="font-semibold text-sm text-slate-800">
                 Get In Touch
               </p>
             </div>
@@ -136,9 +143,9 @@ function Footer() {
               </div>
             </div>
           </div>
-
-          <div className="w-full h-1/2 flex justify-center items-center"></div>
         </div>
+
+        {/* Advertisement Section */}
         <div className="w-[30%] h-full p-2">
           <div className="w-full h-[20%] flex flex-col justify-center items-center p-2">
             <div className="w-full h-1/2 flex justify-start items-center">
@@ -154,11 +161,17 @@ function Footer() {
               </p>
             </div>
             <div className="w-full h-2/3 p-1">
-              <img className="w-full h-full object-cover" src={image} alt="" />
+              <img
+                className="w-full h-full object-cover"
+                src={image}
+                alt="Advertisement"
+              />
             </div>
           </div>
         </div>
       </div>
+
+      {/* Footer Bottom */}
       <div className="w-full h-[20%] flex justify-center items-center p-2 border-t-2 border-slate-300">
         <p className="font-semibold text-slate-700 text-sm">
           prasaydan@2024 _{" "}
