@@ -6,7 +6,6 @@ import React, { useState, useEffect } from "react";
 import { FaEye, FaEyeSlash, FaCheckCircle } from "react-icons/fa"; // Import icons for eye and checkmark
 
 const LoginSignupPage = () => {
-  const { setUser, setIsAuthenticated } = useAuth();
   const [isLogin, setIsLogin] = useState(true);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -52,10 +51,8 @@ const LoginSignupPage = () => {
           withCredentials: true,
         }
       );
-      if (res.status === 200 && res.data.success) {
-        setUser({ email: res.data.email });
-        setIsAuthenticated(true);
-        navigate("/");
+      if (res.data.success) {
+        navigate(`/`);
       }
     } catch (error) {
       setError(error.message);
