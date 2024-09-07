@@ -3,8 +3,10 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
+import { useAuth } from "../Contexts/AuthContext";
 
 const LoginSignupPage = () => {
+  const { setUser, setIsAuthenticated } = useAuth();
   const [isLogin, setIsLogin] = useState(true);
   const [password, setPassword] = useState("");
   const [passwordStrength, setPasswordStrength] = useState("");
@@ -27,8 +29,10 @@ const LoginSignupPage = () => {
           withCredentials: true,
         }
       );
-      if (res.data.success) {
-        navigate(`/`);
+      if (res.status === 200 && res.data.success) {
+        setUser({ email: res.data.email });
+        setIsAuthenticated(true);
+        navigate("/");
       }
     } catch (error) {
       setError(error.message);

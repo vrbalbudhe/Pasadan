@@ -55,13 +55,12 @@ const Login = asyncHandler(async (req, res) => {
       });
     }
 
-    const tokenData = { userId: user.id };
+    const tokenData = { userId: user.id, email: user.email, name: user.name };
     const token = await generateToken(tokenData);
 
     res.cookie("token", token, {
       maxAge: 1000 * 60 * 20,
       httpOnly: true,
-      secure: true,
       sameSite: "strict",
     });
 

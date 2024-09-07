@@ -1,9 +1,17 @@
-// import AdvertisementBar from "../Components/AdvertisementBar";
+import { useAuth } from "../Contexts/AuthContext";
 
 function Homepage() {
+  const { user } = useAuth();
+
   return (
     <div>
-      {/* <AdvertisementBar /> */}
+      {user ? (
+        <h1>
+          Welcome <span>{user.userId}</span>
+        </h1>
+      ) : (
+        <h1>Loading...</h1>
+      )}
     </div>
   );
 }
