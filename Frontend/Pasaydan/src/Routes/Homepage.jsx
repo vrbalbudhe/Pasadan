@@ -6,7 +6,6 @@ function Homepage() {
   return (
     <div>
       <LandingPage />
-      <LandingPage />
     </div>
   );
 }
