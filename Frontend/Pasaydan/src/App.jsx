@@ -6,16 +6,17 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <LoginSignupPage/>,
-      
-      /*path: "/",
       element: <Layout />,
       children: [
         {
           path: "/",
           element: <Homepage />,
         },
-      ],*/
+        {
+          path: "/auth",
+          element: <LoginSignupPage />,
+        },
+      ],
     },
   ]);
 
