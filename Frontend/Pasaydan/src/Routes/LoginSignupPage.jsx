@@ -3,15 +3,26 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
+<<<<<<< HEAD
 import { useAuth } from "../Contexts/AuthContext";
+=======
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import icons for eye
+>>>>>>> ed78ecc3151a89fb972e65d12b08e6419cccc441
 
 const LoginSignupPage = () => {
   const { setUser, setIsAuthenticated } = useAuth();
   const [isLogin, setIsLogin] = useState(true);
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordStrength, setPasswordStrength] = useState("");
+  const [passwordMatch, setPasswordMatch] = useState(true);
   const [error, setError] = useState("");
+  const [otpSent, setOtpSent] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // Toggle state for password visibility
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // Toggle state for confirm password visibility
+  const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
+
   const handleLogin = async (e) => {
     setError("");
     e.preventDefault();
@@ -38,13 +49,29 @@ const LoginSignupPage = () => {
       setError(error.message);
     }
   };
+
   const handleRegistration = async (e) => {
     setError("");
     e.preventDefault();
     const formData = new FormData(e.target);
     const email = formData.get("email");
     const password = formData.get("password");
+    const confirmPassword = formData.get("confirmPassword");
     const name = formData.get("name");
+
+    if (password !== confirmPassword) {
+      setPasswordMatch(false);
+      return;
+    } else {
+      setPasswordMatch(true);
+    }
+
+    setOtpSent(true);
+    setShowPopup(true);
+    setTimeout(() => {
+      setShowPopup(false);
+    }, 3000);
+
     try {
       const res = await axios.post(
         "http://localhost:8000/pasaydan/auth/register",
@@ -64,6 +91,7 @@ const LoginSignupPage = () => {
       setError(error.message);
     }
   };
+
   const toggleForm = () => {
     setIsLogin(!isLogin);
   };
@@ -72,11 +100,7 @@ const LoginSignupPage = () => {
     let strength = "";
     if (password.length < 6) {
       strength = "weak";
-    } else if (
-      password.length >= 6 &&
-      /[A-Z]/.test(password) &&
-      /\d/.test(password)
-    ) {
+    } else if (password.length >= 6 && /[A-Z]/.test(password) && /\d/.test(password)) {
       strength = "strong";
     } else {
       strength = "medium";
@@ -84,11 +108,24 @@ const LoginSignupPage = () => {
     return strength;
   };
 
-  // Handle password input change
   const handlePasswordChange = (e) => {
     const pass = e.target.value;
     setPassword(pass);
     setPasswordStrength(checkPasswordStrength(pass));
+  };
+
+  const handleConfirmPasswordChange = (e) => {
+    const confirmPass = e.target.value;
+    setConfirmPassword(confirmPass);
+    setPasswordMatch(confirmPass === password);
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword); // Toggle password visibility
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword); // Toggle confirm password visibility
   };
 
   return (
@@ -108,9 +145,7 @@ const LoginSignupPage = () => {
         </div>
 
         {/* Form Section */}
-        <div
-          className={`w-full md:w-1/2 p-8 transition-all duration-700 ease-in-out ${isLogin ? "" : "-translate-x-full"}`}
-        >
+        <div className={`w-full md:w-1/2 p-8 transition-all duration-700 ease-in-out ${isLogin ? "" : "-translate-x-full"}`}>
           {isLogin ? (
             <>
               <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
@@ -122,16 +157,24 @@ const LoginSignupPage = () => {
                     type="email"
                     className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Enter your email"
+                    required
                   />
                 </div>
-                <div className="mb-4">
+                <div className="mb-4 relative">
                   <label className="block text-gray-700">Password</label>
                   <input
                     name="password"
-                    type="password"
+                    type={showPassword ? "text" : "password"} // Toggle between text and password
                     className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Enter your password"
+                    required
                   />
+                  <span
+                    onClick={togglePasswordVisibility}
+                    className="absolute right-3 top-10 cursor-pointer text-gray-500"
+                  >
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </span>
                 </div>
                 <div className="mb-4 flex justify-between">
                   <label>
@@ -153,10 +196,7 @@ const LoginSignupPage = () => {
               </form>
               <p className="text-center mt-4 text-gray-500">
                 Don't have an account?
-                <button
-                  onClick={toggleForm}
-                  className="ml-2 text-blue-500 hover:underline"
-                >
+                <button onClick={toggleForm} className="ml-2 text-blue-500 hover:underline">
                   Sign Up
                 </button>
               </p>
@@ -172,6 +212,7 @@ const LoginSignupPage = () => {
                     name="name"
                     className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                     placeholder="Enter your full name"
+                    required
                   />
                 </div>
                 <div className="mb-4">
@@ -181,49 +222,93 @@ const LoginSignupPage = () => {
                     name="email"
                     className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                     placeholder="Enter your email"
+                    required
                   />
                 </div>
-                <div className="mb-4">
+                <div className="mb-4 relative">
                   <label className="block text-gray-700">Password</label>
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"} // Toggle between text and password
                     name="password"
                     value={password}
                     onChange={handlePasswordChange}
                     className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                     placeholder="Enter your password"
+                    required
                   />
-                  {/* Display password strength feedback */}
+                  <span
+                    onClick={togglePasswordVisibility}
+                    className="absolute right-3 top-10 cursor-pointer text-gray-500"
+                  >
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </span>
                   {password && (
                     <p
                       className={`text-sm mt-2 ${
                         passwordStrength === "weak"
                           ? "text-red-500"
                           : passwordStrength === "medium"
-                            ? "text-yellow-500"
-                            : "text-green-500"
+                          ? "text-yellow-500"
+                          : "text-green-500"
                       }`}
                     >
                       {passwordStrength === "weak" && "Password is too weak"}
-                      {passwordStrength === "medium" &&
-                        "Make your password stronger"}
+                      {passwordStrength === "medium" && "Make your password stronger"}
                       {passwordStrength === "strong" && "Password is strong"}
                     </p>
                   )}
                 </div>
+                <div className="mb-4 relative">
+                  <label className="block text-gray-700">Confirm Password</label>
+                  <input
+                    type={showConfirmPassword ? "text" : "password"} // Toggle between text and password
+                    name="confirmPassword"
+                    value={confirmPassword}
+                    onChange={handleConfirmPasswordChange}
+                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                    placeholder="Confirm your password"
+                    required
+                  />
+                  <span
+                    onClick={toggleConfirmPasswordVisibility}
+                    className="absolute right-3 top-10 cursor-pointer text-gray-500"
+                  >
+                    {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+                  </span>
+                  {!passwordMatch && (
+                    <p className="text-red-500 text-sm mt-2">Passwords do not match.</p>
+                  )}
+                </div>
+
+                {otpSent && (
+                  <div className="mb-4">
+                    <label className="block text-gray-700">OTP</label>
+                    <input
+                      type="text"
+                      name="otp"
+                      className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                      placeholder="Enter the OTP sent to your email"
+                    />
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition-all duration-200"
+                  className="w-full bg-black text-white py-2 rounded-lg hover:bg-green-600 transition-all duration-200"
                 >
                   Sign Up
                 </button>
               </form>
+
+              {showPopup && (
+                <div className="fixed top-5 right-5 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg">
+                  OTP has been sent to your email.
+                </div>
+              )}
+
               <p className="text-center mt-4 text-gray-500">
                 Already have an account?
-                <button
-                  onClick={toggleForm}
-                  className="ml-2 text-green-500 hover:underline"
-                >
+                <button onClick={toggleForm} className="ml-2 text-green-500 hover:underline">
                   Login
                 </button>
               </p>
