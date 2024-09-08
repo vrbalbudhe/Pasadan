@@ -3,6 +3,7 @@ import { FaInstagram } from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io5";
 import { BsTwitterX } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { useEffect, useState, useRef } from "react";
 
@@ -21,6 +22,7 @@ function Footer() {
     "https://i.pinimg.com/564x/ab/d9/8d/abd98df87cffc6e9e1252e01d83b6947.jpg",
   ];
 
+  const navigate = useNavigate();
   const [workTitle, setWorkTitle] = useState(
     titleOurWorkAdvertisementDirectory[0]
   );
@@ -75,22 +77,40 @@ function Footer() {
         {/* Navigation Links */}
         <div className="w-[10%] h-full flex justify-center items-center p-2">
           <ul className="font-semibold text-slate-700 text-xs flex flex-col gap-1">
-            <li className="cursor-pointer hover:text-slate-800 hover:underline">
+            <li
+              onClick={() => navigate()}
+              className="cursor-pointer hover:text-slate-800 hover:underline"
+            >
               Home
             </li>
-            <li className="cursor-pointer hover:text-slate-800 hover:underline">
+            <li
+              onClick={() => navigate()}
+              className="cursor-pointer hover:text-slate-800 hover:underline"
+            >
               Drive
             </li>
-            <li className="cursor-pointer hover:text-slate-800 hover:underline">
+            <li
+              onClick={() => navigate()}
+              className="cursor-pointer hover:text-slate-800 hover:underline"
+            >
               Resources
             </li>
-            <li className="cursor-pointer hover:text-slate-800 hover:underline">
+            <li
+              onClick={() => navigate()}
+              className="cursor-pointer hover:text-slate-800 hover:underline"
+            >
               Feedback
             </li>
-            <li className="cursor-pointer hover:text-slate-800 hover:underline">
+            <li
+              onClick={() => navigate()}
+              className="cursor-pointer hover:text-slate-800 hover:underline"
+            >
               Contact Us
             </li>
-            <li className="cursor-pointer hover:text-slate-800 hover:underline">
+            <li
+              onClick={() => navigate()}
+              className="cursor-pointer hover:text-slate-800 hover:underline"
+            >
               About
             </li>
           </ul>
@@ -99,19 +119,28 @@ function Footer() {
         {/* Register, Login, etc. */}
         <div className="w-[10%] h-full flex justify-center items-center p-2">
           <ul className="font-semibold text-slate-700 text-xs flex flex-col gap-1">
-            <li className="cursor-pointer hover:text-slate-800 hover:underline">
-              Register
+            <li
+              onClick={() => navigate("/auth")}
+              className="cursor-pointer hover:text-slate-800 hover:underline"
+            >
+              Register / Login
             </li>
-            <li className="cursor-pointer hover:text-slate-800 hover:underline">
-              Login
-            </li>
-            <li className="cursor-pointer hover:text-slate-800 hover:underline">
+            <li
+              onClick={() => navigate()}
+              className="cursor-pointer hover:text-slate-800 hover:underline"
+            >
               Founders
             </li>
-            <li className="cursor-pointer hover:text-slate-800 hover:underline">
+            <li
+              onClick={() => navigate()}
+              className="cursor-pointer hover:text-slate-800 hover:underline"
+            >
               Social Media
             </li>
-            <li className="cursor-pointer hover:text-slate-800 hover:underline">
+            <li
+              onClick={() => navigate()}
+              className="cursor-pointer hover:text-slate-800 hover:underline"
+            >
               Privacy-Policy
             </li>
           </ul>

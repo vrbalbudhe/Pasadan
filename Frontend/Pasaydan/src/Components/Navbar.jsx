@@ -74,7 +74,7 @@ function Navbar() {
         {!isAuthenticated ? (
           <button
             onClick={() => navigate("/auth")}
-            className="px-2 py-1 bg-gray-200 text-xs font-semibold rounded-md hover:bg-blue-500 hover:text-white transition-all duration-300"
+            className="px-2 py-2 bg-violet-500 text-xs font-semibold hover:bg-blue-500 text-white transition-all duration-300"
           >
             SignIn / SignUp
           </button>
