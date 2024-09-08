@@ -3,6 +3,7 @@ import { Layout, RequiredAuth } from "./Routes/Layout";
 import Homepage from "./Routes/Homepage";
 import LoginSignupPage from "./Routes/LoginSignupPage";
 import Dashboard from "./Routes/Dashboard";
+import AdminDashboard from "./Admin/AdminDash";
 import About from "./Routes/About";
 function App() {
   const router = createBrowserRouter([
@@ -17,6 +18,10 @@ function App() {
         {
           path: "/about",
           element: <About />,
+        },
+        {
+          path: "/admin/dashboard",
+          element: <AdminDashboard />,
         },
       ],
     },

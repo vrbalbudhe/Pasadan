@@ -61,16 +61,10 @@ function Navbar() {
         <li className="relative group cursor-pointer text-gray-800 -tracking-tight hover:text-zinc-700 transition-all duration-300">
           Drives
         </li>
-        <li
-          onClick={() => navigate("/contact")}
-          className="relative group cursor-pointer text-gray-800 -tracking-tight hover:text-zinc-700 transition-all duration-300"
-        >
-          Other
-        </li>
       </ul>
 
       {/* Action Buttons */}
-      <div className="w-[30%] flex items-center justify-center space-x-4">
+      <div className="w-[30%] flex items-center justify-end space-x-4">
         {!isAuthenticated ? (
           <button
             onClick={() => navigate("/auth")}

@@ -16,6 +16,7 @@ require("./Jobs/CronJob Cleanup");
 const authRoutes = require("./Routes/Auth.Routes");
 const CertificateRoutes = require("./Routes/Certificate.Routes");
 const contactusRoutes = require("./Routes/Contact.Routes");
+const adminRoutes = require("./Routes/Admin.Routes");
 
 app.use(cors(corsOptions));
 app.use(
@@ -35,6 +36,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/pasaydan/auth/", authRoutes);
 app.use("/pasaydan/user/", CertificateRoutes);
 app.use("/pasaydan/contact/", contactusRoutes);
+app.use("/pasaydan/admin/", adminRoutes);
 
 const port = 8000;
 const connection = async () => {
