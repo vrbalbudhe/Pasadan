@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-    const images = [
-        "/images/login_jpg.jpeg",
-        "/images/signup_jpg.jpeg",// Ensure these paths are correct
-      ];
-  
+// Images Array (Make sure the paths are correct)
+const images = [
+  "/images/login_jpg.jpeg",
+  "/images/signup_jpg.jpeg",
+];
 
 const LandingPage = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -34,19 +34,31 @@ const LandingPage = () => {
           </button>
         </div>
 
-        {/* Right Side - Carousel of Images */}
+        {/* Right Side - Carousel of Images with Better Yellow Background */}
         <div className="md:w-1/2 flex justify-center items-center relative">
-          <div className="relative w-full h-80 bg-gray-200"> {/* Ensures container visibility */}
-            {images.map((image, index) => (
-              <img
-                key={index}
-                src={image}
-                alt={`Rotating ${index}`}
-                className={`absolute inset-0 object-cover w-full h-full transition-opacity duration-1000 ease-in-out ${
-                  currentImageIndex === index ? "opacity-100" : "opacity-0"
-                }`}
-              />
-            ))}
+          {/* Yellow Background Image (Using a URL) */}
+          <div
+            className="relative w-full h-96 bg-cover bg-center"
+            style={{ backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSqbcmGIV8fg_nEsE_uEBwJhPmeMK3P6JS0A&s')" }} // Update this URL with a valid yellow background image URL
+          >
+            {/* Rotating Images (Rectangular Format) */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              {images.map((image, index) => (
+                <img
+                  key={index}
+                  src={image}
+                  alt={`Rotating ${index}`}
+                  className={`absolute object-contain transition-opacity duration-1000 ease-in-out ${
+                    currentImageIndex === index ? "opacity-100" : "opacity-0"
+                  }`}
+                  style={{
+                    width: "90%", // Increased size to fit the background better
+                    height: "auto", // Maintain aspect ratio
+                    boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
+                  }}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -55,5 +67,3 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
-
-
