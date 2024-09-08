@@ -112,9 +112,8 @@ const handleContactFormSub = asyncHandler(async (req, res) => {
       </body>
       </html>
     `;
-    const mainEmail = process.env.EmailAddress;
 
-    await sendMail(mainEmail, subject, text, html);
+    await sendMail(process.env.EmailAddress, subject, text, html);
 
     return res.status(200).json({
       message: "Request created successfully",
