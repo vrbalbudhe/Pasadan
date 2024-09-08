@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/YOUR_CPANEL_USERNAME/public_html/
+    - export DEPLOYPATH=/home/hrcbl2gu4ork/public_html/
     # Step 1: Deploy Frontend files
     - /bin/cp -R Frontend/* $DEPLOYPATH
     # Step 2: Navigate to the Backend directory
