@@ -34,7 +34,7 @@ const LandingPage = () => {
           </button>
         </div>
 
-        {/* Right Side - Carousel of Images */}
+        {/* Right Side - Carousel of Images with Better Yellow Background */}
         <div className="md:w-1/2 flex justify-center items-center relative">
           <div className="relative w-full h-80 bg-gray-200"> 
             {images.map((image, index) => (
