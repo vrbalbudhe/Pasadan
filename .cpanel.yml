@@ -1,12 +1,14 @@
 ---
 deployment:
   tasks:
+    # Step 1: Set deployment path
     - export DEPLOYPATH=/home/hrcbl2gu4ork/public_html/
-    # Step 1: Deploy Frontend files
-    - /bin/cp -R Frontend/* $DEPLOYPATH
-    # Step 2: Navigate to the Backend directory
-    - cd Backend
-    # Step 3: Install backend dependencies
-    - /usr/local/bin/npm install
-    # Step 4: Start the Backend server
-    - /usr/local/bin/npm start
+    
+    # Step 2: Deploy Frontend files (from the correct subfolder)
+    - /bin/cp -R Frontend/Pasaydan/* $DEPLOYPATH
+    
+    # Step 3: Install backend dependencies with correct directory prefix
+    - /usr/local/bin/npm install --prefix Backend
+    
+    # Step 4: Start the Backend server (if supported)
+    - /usr/local/bin/npm start --prefix Backend
