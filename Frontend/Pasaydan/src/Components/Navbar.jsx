@@ -10,7 +10,7 @@ function Navbar() {
   const handlePlusSign = () => {
     setAddPlus((prev) => !prev);
   };
-  
+
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -43,10 +43,16 @@ function Navbar() {
 
       {/* Navigation Links */}
       <ul className="w-[50%] flex items-center justify-center space-x-6 text-xs font-semibold">
-        <li className="relative group cursor-pointer text-gray-800 -tracking-tight hover:text-zinc-700 transition-all duration-300">
+        <li
+          onClick={() => navigate("/")}
+          className="relative group cursor-pointer text-gray-800 -tracking-tight hover:text-zinc-700 transition-all duration-300"
+        >
           Home
         </li>
-        <li className="relative group cursor-pointer text-gray-800 -tracking-tight hover:text-zinc-700 transition-all duration-300">
+        <li
+          onClick={() => navigate("/about")}
+          className="relative group cursor-pointer text-gray-800 -tracking-tight hover:text-zinc-700 transition-all duration-300"
+        >
           About
         </li>
         <li className="relative group cursor-pointer text-gray-800 -tracking-tight hover:text-zinc-700 transition-all duration-300">
@@ -55,8 +61,11 @@ function Navbar() {
         <li className="relative group cursor-pointer text-gray-800 -tracking-tight hover:text-zinc-700 transition-all duration-300">
           Drives
         </li>
-        <li className="relative group cursor-pointer text-gray-800 -tracking-tight hover:text-zinc-700 transition-all duration-300">
-          Contact Us
+        <li
+          onClick={() => navigate("/contact")}
+          className="relative group cursor-pointer text-gray-800 -tracking-tight hover:text-zinc-700 transition-all duration-300"
+        >
+          Other
         </li>
       </ul>
 

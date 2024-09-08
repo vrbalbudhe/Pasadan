@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 const express = require("express");
 const helmet = require("helmet");
 const cookieParser = require("cookie-parser");
@@ -15,8 +15,9 @@ const corsOptions = {
 require("./Jobs/CronJob Cleanup");
 const authRoutes = require("./Routes/Auth.Routes");
 const CertificateRoutes = require("./Routes/Certificate.Routes");
+const contactusRoutes = require("./Routes/Contact.Routes");
 
-app.use(cors(corsOptions)); 
+app.use(cors(corsOptions));
 app.use(
   helmet({
     contentSecurityPolicy: {
@@ -33,6 +34,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/pasaydan/auth/", authRoutes);
 app.use("/pasaydan/user/", CertificateRoutes);
+app.use("/pasaydan/contact/", contactusRoutes);
 
 const port = 8000;
 const connection = async () => {

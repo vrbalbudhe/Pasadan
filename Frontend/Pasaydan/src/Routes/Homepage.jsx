@@ -1,11 +1,15 @@
-
 // import AdvertisementBar from "../Components/AdvertisementBar";
-import LandingPage
-  from "../Components/LandingPage";
+import ContactUs from "../Components/ContactUs";
+import LandingPage from "../Components/LandingPage";
 function Homepage() {
   return (
-    <div>
-      <LandingPage />
+    <div className="w-full h-full flex flex-col justify-center items-center">
+      <div className="w-full h-fit">
+        <LandingPage />
+      </div>
+      <div className="w-full h-fit">
+        <ContactUs />
+      </div>
     </div>
   );
 }
