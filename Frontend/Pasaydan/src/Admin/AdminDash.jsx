@@ -31,11 +31,11 @@ function AdminDashboard() {
       <div className="w-[20%] h-[100vh] flex justify-center items-center">
         <ul className="w-full h-full flex justify-start pt-10 items-center flex-col gap-2">
           {[
-            "Manage Drive",
+            "User Information",
             "Advertisement",
+            "Manage Drive",
             "Manage History",
             "Transactions Logs",
-            "User Information",
             "Download CSV Data",
             "Logout",
           ].map((item) => (

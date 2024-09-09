@@ -40,7 +40,7 @@ function AdvertisementBar() {
         {images.map((_, index) => (
           <div
             key={index}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-1 h-1 rounded-full transition-all duration-300 ${
               index === currentImageIndex ? "bg-slate-800" : "bg-gray-400"
             }`}
           ></div>
