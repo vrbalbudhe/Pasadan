@@ -23,3 +23,17 @@ model Otp {
   expiresAt DateTime
   createdAt DateTime @default(now())
 }
+
+model VisibilityAdvBar {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  isVisible Boolean @default(false)
+}
+
+model AdvImage {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  filename  String
+  filepath  String
+  filetype  String
+  filesize  Int
+  createdAt DateTime @default(now())
+}

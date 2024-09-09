@@ -1,5 +1,6 @@
 import { useState } from "react";
 import UserInformation from "./UserInformation";
+import AdvertisementDash from "./AdvertisementDash";
 
 function AdminDashboard() {
   const [selectedItem, setSelectedItem] = useState("Manage Drive");
@@ -9,13 +10,13 @@ function AdminDashboard() {
       case "Manage Drive":
         return <div>Content for Managing Drive</div>;
       case "Advertisement":
-        return <div>Content for Advertisement</div>;
+        return <AdvertisementDash />;
       case "Manage History":
         return <div>Content for Managing History</div>;
       case "Transactions Logs":
         return <div>Content for Transaction Logs</div>;
       case "User Information":
-        return <UserInformation/>;
+        return <UserInformation />;
       case "Download CSV Data":
         return <div>Content for Downloading CSV Data</div>;
       case "Logout":

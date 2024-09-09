@@ -1,11 +1,16 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useState } from "react";
 import { Layout, RequiredAuth } from "./Routes/Layout";
 import Homepage from "./Routes/Homepage";
 import LoginSignupPage from "./Routes/LoginSignupPage";
 import Dashboard from "./Routes/Dashboard";
 import AdminDashboard from "./Admin/AdminDash";
 import About from "./Routes/About";
+
 function App() {
+  const [advOn, setAdvOn] = useState(false);
+  const [uploadedImages, setUploadedImages] = useState([]);
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -13,7 +18,7 @@ function App() {
       children: [
         {
           path: "/",
-          element: <Homepage />,
+          element: <Homepage advOn={advOn} uploadedImages={uploadedImages} />,
         },
         {
           path: "/about",
@@ -21,7 +26,13 @@ function App() {
         },
         {
           path: "/admin/dashboard",
-          element: <AdminDashboard />,
+          element: (
+            <AdminDashboard
+              advOn={advOn}
+              setAdvOn={setAdvOn}
+              setUploadedImages={setUploadedImages}
+            />
+          ),
         },
       ],
     },
