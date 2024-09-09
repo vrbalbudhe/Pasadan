@@ -1,57 +1,44 @@
-import React, { useState, useEffect } from "react";
-
-const images = [
-  "/images/lp1.png",
-  "/images/lp2.png",
-  "/images/lp4.png", // Ensure these paths are correct
-];
+import React from 'react';
 
 const LandingPage = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  // Image carousel logic to change images every 2 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) =>
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 2000); // 2 seconds interval
-
-    return () => clearInterval(interval); // Clean up the interval
-  }, []);
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white">
-      {/* Reduce padding to shift the content upwards */}
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-6 py-6"> 
-        {/* Left Side - Text */}
-        <div className="md:w-1/2 flex flex-col justify-center items-start">
-
-          {/* Add पसायदान in Marathi calligraphy */}
-          <h2 className="text-4xl mt-4 text-yellow-500 font-serif">पसायदान</h2>
-          <button className="bg-black text-white py-3 px-6 mt-6 rounded-full shadow-lg hover:bg-gray-900 transition duration-300">
-            Donate Now!
-          </button>
-        </div>
-
-        {/* Right Side - Carousel of Images with Better Yellow Background */}
-        <div className="md:w-1/2 flex justify-center items-center relative">
-          <div className="relative w-full h-80 bg-gray-200"> 
-            {images.map((image, index) => (
-              <img
-                key={index}
-                src={image}
-                alt={`Rotating ${index}`}
-                className={`absolute inset-0 object-cover w-full h-full transition-opacity duration-1000 ease-in-out ${
-                  currentImageIndex === index ? "opacity-100" : "opacity-0"
-                }`}
-              />
-            ))}
-          </div>
-        </div>
+    <div className="min-h-screen flex flex-col md:flex-row items-center justify-between px-8 bg-gray-100 relative overflow-hidden">
+      
+      {/* Left Side - Text and Button */}
+      <div className="md:w-1/2 flex flex-col justify-center items-start z-20">
+        <h1 className="text-5xl font-bold text-gray-800 leading-tight">
+          Let's gift <span className="text-yellow-500 font-style: italic">brighter days</span> to people in shadows
+        </h1>
+        <button className="mt-6 bg-yellow-500 text-white py-3 px-6 rounded-full shadow-lg hover:bg-yellow-600 transition duration-300">
+          Donate Now
+        </button>
       </div>
+
+      {/* Right Side - Main Circle and Smaller Circles */}
+      <div className="md:w-1/2 flex justify-center relative z-10">
+        {/* Main Big Circle */}
+        <div className="relative">
+          <div className="w-64 h-64 rounded-full bg-cover bg-center relative z-10 transition-transform duration-500 hover:scale-110 shadow-[0_0_30px_10px_rgba(255,215,0,0.6)]" style={{ backgroundImage: `url('/images/lp4.png')` }}></div>
+          <div className="absolute top-0 left-0 w-full h-full rounded-full bg-gradient-to-br from-yellow-300 to-yellow-600 blur-xl opacity-50"></div>
+        </div>
+
+        
+        <div className="absolute w-40 h-40 bg-cover bg-center rounded-full transition-transform duration-500 hover:scale-110 shadow-[0_0_20px_5px_rgba(255,215,0,0.6)]" style={{ backgroundImage: `url('/images/lp3.png')`, top: '-110px', left: '40px' }}></div> 
+        <div className="absolute w-32 h-32 bg-cover bg-center rounded-full transition-transform duration-500 hover:scale-110 shadow-[0_0_20px_5px_rgba(255,215,0,0.6)]" style={{ backgroundImage: `url('/images/lp2.png')`, bottom: '-40px', left: '-50px' }}></div>
+        <div className="absolute w-36 h-36 bg-cover bg-center rounded-full transition-transform duration-500 hover:scale-110 shadow-[0_0_20px_5px_rgba(255,215,0,0.6)]" style={{ backgroundImage: `url('/images/lp1.png')`, top: '160px', right: '-30px' }}></div>
+
+        {/* Additional Circles for a more dynamic layout */}
+        <div className="absolute w-20 h-20 bg-cover bg-center rounded-full transition-transform duration-500 hover:scale-110 shadow-[0_0_20px_5px_rgba(255,215,0,0.6)]" style={{ backgroundImage: `url('/images/small5.jpg')`, bottom: '300px', right: '500px' }}></div>
+        <div className="absolute w-24 h-24 bg-cover bg-center rounded-full transition-transform duration-500 hover:scale-110 shadow-[0_0_20px_5px_rgba(255,215,0,0.6)]" style={{ backgroundImage: `url('/images/small6.jpg')`, bottom: '200px', right: '20px' }}></div>
+      </div>
+
+      {/* More Circles spread throughout the page */}
+      <div className="absolute w-20 h-20 bg-cover bg-center rounded-full transition-transform duration-500 hover:scale-110 shadow-[0_0_20px_5px_rgba(255,215,0,0.6)]" style={{ backgroundImage: `url('/images/small7.jpg')`, top: '80px', left: '100px' }}></div>
+      <div className="absolute w-24 h-24 bg-cover bg-center rounded-full transition-transform duration-500 hover:scale-110 shadow-[0_0_20px_5px_rgba(255,215,0,0.6)]" style={{ backgroundImage: `url('/images/small8.jpg')`, bottom: '150px', left: '200px' }}></div>
+      <div className="absolute w-28 h-28 bg-cover bg-center rounded-full transition-transform duration-500 hover:scale-110 shadow-[0_0_20px_5px_rgba(255,215,0,0.6)]" style={{ backgroundImage: `url('/images/small9.jpg')`, top: '450px', right: '300px' }}></div>
     </div>
   );
 };
 
 export default LandingPage;
+
