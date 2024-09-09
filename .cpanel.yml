@@ -1,0 +1,13 @@
+---
+deployment:
+  tasks:
+    # Step 1: Set deployment path for frontend files
+    - export DEPLOYPATH=/home/YOUR_CPANEL_USERNAME/public_html/
+
+    # Step 2: Install backend dependencies and run the backend
+    - /usr/local/bin/npm install --prefix Backend
+    - /usr/local/bin/npm run pasaydan --prefix Backend
+
+    # Step 3: Install frontend dependencies and run the frontend development server
+    - /usr/local/bin/npm install --prefix Frontend/Pasaydan
+    - /usr/local/bin/npm run dev --prefix Frontend/Pasaydan
