@@ -7,17 +7,17 @@ export const Layout = () => {
   return (
     <div className="w-full h-fit flex flex-col justify-start items-center">
       {/* Navigation Bar */}
-      <div className="w-[80%] h-full">
+      <div className="w-full md:w-[80%] h-full">
         <Navbar />
       </div>
 
       {/* Content */}
-      <div className="w-[80%] min-h-[100vh]">
+      <div className="w-full md:w-[80%] min-h-[100vh]">
         <Outlet />
       </div>
 
       {/* Footer */}
-      <div className="w-[80%] h-full">
+      <div className="w-full md:w-[80%] h-full py-2 pl-2 pr-2 md:pr-2 md:pl-2">
         <Footer />
       </div>
     </div>

@@ -47,11 +47,11 @@ function Footer() {
   }, []);
 
   return (
-    <div className="w-full bg-white h-80 flex flex-col justify-center items-center p-2 border-r border-l border-t shadow-xl">
-      <div className="w-full h-[80%] flex justify-center items-center">
+    <div className="w-full bg-white md:h-80 h-full md:flex md:flex-col md:justify-center items-center p-2 border-r border-l border-t shadow-xl">
+      <div className="w-full h-[80%] md:flex justify-center items-center">
         {/* Logo and Title Section */}
-        <div className="w-[30%] h-full p-2">
-          <div className="w-full h-[50%] flex flex-col justify-center items-center">
+        <div className="w-full md:w-[30%] h-full p-2">
+          <div className="w-full md:h-[50%] h-full flex flex-col justify-center items-center">
             <div className="w-full h-full flex justify-center items-center gap-2">
               <img
                 className="w-10 h-10"
@@ -60,14 +60,14 @@ function Footer() {
               />
               <p className="text-slate-900 font-semibold">Pasaydan</p>
             </div>
-            <p className="font-semibold text-slate-700 text-sm">
+            <p className="font-semibold text-slate-700 mt-5 md:mt-0 text-sm">
               जो जे वांछिल, तो ते लाहो, प्रणिजात
             </p>
             <p className="font-semibold text-slate-600 text-xs">
               ~ संत ज्ञानेश्वर महाराज ~
             </p>
           </div>
-          <div className="w-full h-[50%] flex flex-col justify-center items-center gap-2">
+          <div className="w-full md:h-[50%] h-full flex flex-col justify-center items-center gap-2">
             <p className="font-semibold text-slate-700 text-xs">
               Founded - 10 March 2021
             </p>
@@ -75,7 +75,7 @@ function Footer() {
         </div>
 
         {/* Navigation Links */}
-        <div className="w-[10%] h-full flex justify-center items-center p-2">
+        <div className="w-full md:w-[10%] h-full flex justify-center items-center p-2">
           <ul className="font-semibold text-slate-700 text-xs flex flex-col gap-1">
             <li
               onClick={() => navigate()}
@@ -117,7 +117,7 @@ function Footer() {
         </div>
 
         {/* Register, Login, etc. */}
-        <div className="w-[10%] h-full flex justify-center items-center p-2">
+        <div className="w-full md:w-[10%] h-full flex justify-center items-center p-2">
           <ul className="font-semibold text-slate-700 text-xs flex flex-col gap-1">
             <li
               onClick={() => navigate("/auth")}
@@ -147,14 +147,14 @@ function Footer() {
         </div>
 
         {/* Contact Section */}
-        <div className="w-[20%] h-full p-2">
+        <div className="w-full md:w-[20%] h-full p-2">
           <div className="w-full h-1/2 flex flex-col justify-center items-center p-2">
-            <div className="w-full h-1/2 flex justify-start items-center">
+            <div className="w-full mb-5 md:mb-0 md:h-1/2 flex md:justify-start justify-center items-center">
               <p className="font-semibold text-sm text-slate-800">
                 Get In Touch
               </p>
             </div>
-            <div className="w-full h-1/2 flex justify-start items-center gap-2 text-2xl">
+            <div className="w-full h-1/2 flex md:justify-start justify-center items-center gap-2 text-2xl">
               <div className="hover:text-slate-500">
                 <FaInstagram />
               </div>
@@ -175,7 +175,7 @@ function Footer() {
         </div>
 
         {/* Advertisement Section */}
-        <div className="w-[30%] h-full p-2">
+        <div className="w-full md:w-[30%] h-full p-2">
           <div className="w-full h-[20%] flex flex-col justify-center items-center p-2">
             <div className="w-full h-1/2 flex justify-start items-center">
               <p className="font-semibold text-sm text-slate-800">

@@ -22,7 +22,7 @@ function AdvertisementBar() {
 
   if (images.length === 0) {
     return (
-      <div className="w-full h-80 bg-gray-200 flex justify-center items-center">
+      <div className="w-full h-80 bg-gray-200 object-cover flex justify-center items-center">
         No advertisements available
       </div>
     );

@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { FaTrophy, FaBicycle, FaGlobe, FaCommentDots } from 'react-icons/fa';
+import React, { useEffect, useState, useRef } from "react";
+import { FaTrophy, FaBicycle, FaGlobe, FaCommentDots } from "react-icons/fa";
 
 const Metrics = () => {
   const targetValues = {
@@ -21,12 +21,15 @@ const Metrics = () => {
 
   // Intersection Observer to trigger the animation when the section comes into view
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      const entry = entries[0];
-      if (entry.isIntersecting && !hasAnimated) {
-        setHasAnimated(true);
-      }
-    }, { threshold: 0.5 }); // Start the animation when 50% of the element is visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+        }
+      },
+      { threshold: 0.5 }
+    ); // Start the animation when 50% of the element is visible
 
     if (metricsRef.current) {
       observer.observe(metricsRef.current);
@@ -57,10 +60,22 @@ const Metrics = () => {
     const interval = setInterval(() => {
       setMetrics((prevMetrics) => {
         const nextMetrics = {
-          awards: Math.min(prevMetrics.awards + incrementValues.awards, targetValues.awards),
-          bicycles: Math.min(prevMetrics.bicycles + incrementValues.bicycles, targetValues.bicycles),
-          globalSupport: Math.min(prevMetrics.globalSupport + incrementValues.globalSupport, targetValues.globalSupport),
-          comments: Math.min(prevMetrics.comments + incrementValues.comments, targetValues.comments),
+          awards: Math.min(
+            prevMetrics.awards + incrementValues.awards,
+            targetValues.awards
+          ),
+          bicycles: Math.min(
+            prevMetrics.bicycles + incrementValues.bicycles,
+            targetValues.bicycles
+          ),
+          globalSupport: Math.min(
+            prevMetrics.globalSupport + incrementValues.globalSupport,
+            targetValues.globalSupport
+          ),
+          comments: Math.min(
+            prevMetrics.comments + incrementValues.comments,
+            targetValues.comments
+          ),
         };
 
         // Stop the interval when all target values are reached
@@ -81,39 +96,50 @@ const Metrics = () => {
   }, [hasAnimated, targetValues]);
 
   return (
-    <div ref={metricsRef} className="min-h-screen flex flex-col items-center justify-center bg-white text-gray-900">
-      <h1 className="text-4xl font-bold mb-10">THE GOAL: 1 MILLION BICYCLES BY 2025</h1>
+    <div
+      ref={metricsRef}
+      className="md:min-h-screen h-fit flex flex-col py-2 pl-2 pr-2 mt-20 mb-20 md:mt-0 md:mb-0 md:pr-2 md:pl-2 items-center justify-center bg-white text-gray-900"
+    >
+      <h1 className="text-center text-2xl pl-5 pr-5 md:pr-0 md:pl-0 md:text-4xl font-bold mb-10">
+        THE GOAL: 1 MILLION BICYCLES BY 2025
+      </h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
-
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
         {/* Award Won */}
         <div className="flex flex-col items-center">
-          <FaTrophy className="text-yellow-500 text-6xl mb-4" />
-          <h2 className="text-5xl font-bold">{Math.floor(metrics.awards)}+</h2>
+          <FaTrophy className="text-yellow-500 text-4xl md:text-6xl mb-4" />
+          <h2 className="text-2xl md:text-5xl font-bold">
+            {Math.floor(metrics.awards)}+
+          </h2>
           <p className="text-lg">Awards Won</p>
         </div>
 
         {/* Bicycles Delivered */}
         <div className="flex flex-col items-center">
-          <FaBicycle className="text-yellow-500 text-6xl mb-4" />
-          <h2 className="text-5xl font-bold">{Math.floor(metrics.bicycles)}+</h2>
+          <FaBicycle className="text-yellow-500 text-4xl md:text-6xl mb-4" />
+          <h2 className="text-2xl md:text-5xl font-bold">
+            {Math.floor(metrics.bicycles)}+
+          </h2>
           <p className="text-lg">Bicycles Delivered</p>
         </div>
 
         {/* Global Support */}
         <div className="flex flex-col items-center">
-          <FaGlobe className="text-yellow-500 text-6xl mb-4" />
-          <h2 className="text-5xl font-bold">{Math.floor(metrics.globalSupport)}+</h2>
+          <FaGlobe className="text-yellow-500 text-4xl md:text-6xl mb-4" />
+          <h2 className="text-2xl md:text-5xl font-bold">
+            {Math.floor(metrics.globalSupport)}+
+          </h2>
           <p className="text-lg">Global Support</p>
         </div>
 
         {/* Comments */}
         <div className="flex flex-col items-center">
-          <FaCommentDots className="text-yellow-500 text-6xl mb-4" />
-          <h2 className="text-5xl font-bold">{Math.floor(metrics.comments)}+</h2>
+          <FaCommentDots className="text-yellow-500 text-4xl md:text-6xl mb-4" />
+          <h2 className="text-2xl md:text-5xl font-bold">
+            {Math.floor(metrics.comments)}+
+          </h2>
           <p className="text-lg">Comments</p>
         </div>
-
       </div>
     </div>
   );

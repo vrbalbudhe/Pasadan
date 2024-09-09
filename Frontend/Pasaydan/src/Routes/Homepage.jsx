@@ -14,8 +14,8 @@ function Homepage() {
       <div className="w-full h-full">{advBar ? <AdvertisementBar /> : ""}</div>
       <div className="w-full h-fit">
         <LandingPage />
-        <WhatWeDo/>
-        <Metrics/>
+        <WhatWeDo />
+        <Metrics />
       </div>
       <div className="w-full h-fit">
         <ContactUs />

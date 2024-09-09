@@ -46,7 +46,7 @@ function ContactUs() {
   };
 
   return (
-    <div className="w-full h-fit flex flex-col justify-center items-center py-1">
+    <div className="w-full h-fit flex flex-col justify-center items-center py-2 pl-2 pr-2 md:pr-2 md:pl-2">
       <div className="w-[100%] bg-white border-r border-l border-t-2 border-b-2 p-6 shadow-sm">
         <div className="w-full flex justify-between items-center mb-6">
           <h2 className="w-1/2 text-xl font-bold tracking-tight text-gray-800">
