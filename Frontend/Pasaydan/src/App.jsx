@@ -6,6 +6,9 @@ import LoginSignupPage from "./Routes/LoginSignupPage";
 import Dashboard from "./Routes/Dashboard";
 import AdminDashboard from "./Admin/AdminDash";
 import About from "./Routes/About";
+import Comments from "./Routes/Comments";
+import Drive from "./Routes/Drive";
+import Partnerships from "./Routes/Partnerships";
 
 function App() {
   const [advOn, setAdvOn] = useState(false);
@@ -23,6 +26,18 @@ function App() {
         {
           path: "/about",
           element: <About />,
+        },
+        {
+          path: "/comments",
+          element: <Comments />,
+        },
+        {
+          path: "/drive",
+          element: <Drive />,
+        },
+        {
+          path: "/partnerships",
+          element: <Partnerships />,
         },
         {
           path: "/admin/dashboard",

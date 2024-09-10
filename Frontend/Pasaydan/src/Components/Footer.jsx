@@ -50,7 +50,7 @@ function Footer() {
     <div className="w-full bg-[#1f2421] md:h-80 h-full md:flex md:flex-col md:justify-center items-center p-2 border-r border-l border-t shadow-xl">
       <div className="w-full h-[80%] md:flex justify-center items-center">
         {/* Logo and Title Section */}
-        <div className="w-full md:w-[30%] h-full p-2">
+        <div className="w-full md:w-[20%] h-full p-2">
           <div className="w-full md:h-[50%] h-full flex flex-col justify-center items-center">
             <div className="w-full h-full flex justify-center items-center gap-2">
               <img
@@ -60,10 +60,10 @@ function Footer() {
               />
               <p className="text-white text-2xl">Pasaydan</p>
             </div>
-            <p className="font-semibold text-slate-300 p-1 mt-5 md:mt-0 text-sm">
+            <p className="font-semibold text-slate-300 p-1 mt-5 md:mt-0 text-md -tracking-tighter">
               जो जे वांछिल, तो ते लाहो, प्रणिजात
             </p>
-            <p className=" text-slate-300 p-1 text-xs">
+            <p className=" text-slate-300 p-1 text-sm -tracking-tighter">
               ~ संत ज्ञानेश्वर महाराज ~
             </p>
           </div>
@@ -74,7 +74,7 @@ function Footer() {
 
         {/* Navigation Links */}
         <div className="w-full md:w-[10%] h-full flex justify-center items-center p-2">
-          <ul className="font-semibold text-white text-xs flex flex-col gap-1">
+          <ul className="font-semibold text-white text-sm flex flex-col gap-1">
             <li
               onClick={() => navigate()}
               className="cursor-pointer hover:text-slate-500 hover:underline"
@@ -116,7 +116,7 @@ function Footer() {
 
         {/* Register, Login, etc. */}
         <div className="w-full md:w-[10%] h-full flex justify-center items-center p-2">
-          <ul className="font-semibold text-white text-xs flex flex-col gap-1">
+          <ul className="font-semibold text-white text-sm flex flex-col gap-1">
             <li
               onClick={() => navigate("/auth")}
               className="cursor-pointer hover:text-slate-500 hover:underline"
@@ -145,10 +145,10 @@ function Footer() {
         </div>
 
         {/* Contact Section */}
-        <div className="w-full md:w-[20%] h-full p-2">
+        <div className="w-full md:w-[15%] h-full p-2">
           <div className="w-full h-1/2 flex flex-col justify-center items-center p-2">
             <div className="w-full mb-5 md:mb-0 md:h-1/2 flex md:justify-start justify-center items-center">
-              <p className="font-semibold text-sm text-white">Get In Touch</p>
+              <p className="font-semibold text-lg text-white">Get In Touch</p>
             </div>
             <div className="w-full h-1/2 text-white flex md:justify-start justify-center items-center gap-2 text-2xl">
               <div className="hover:text-slate-500">
@@ -168,7 +168,7 @@ function Footer() {
         </div>
 
         {/* Advertisement Section */}
-        <div className="w-full md:w-[30%] h-full p-2">
+        <div className="w-full md:w-[20%] h-full p-2">
           <div className="w-full h-[20%] flex flex-col justify-center items-center p-2">
             <div className="w-full h-1/2 flex justify-center md:justify-start items-center">
               <p className="font-bold text-lg md:text-xl text-white">
@@ -194,9 +194,9 @@ function Footer() {
       </div>
 
       {/* Footer Bottom */}
-      <div className="w-full h-[20%] flex justify-center items-center p-2 border-t-2 border-slate-700">
-        <p className="font-semibold text-white text-sm">prasaydan@2024 _ </p>
-        <p className="font-semibold text-white text-sm">All Rights Reserved</p>
+      <div className="w-full h-[20%] flex justify-center items-center p-2 border-t-2 border-slate-400">
+        <p className="font-semibold text-slate-200 text-md -tracking-tighter">prasaydan@2024 _ </p>
+        <p className="font-semibold text-slate-200 text-md -tracking-tighter">All Rights Reserved</p>
       </div>
     </div>
   );

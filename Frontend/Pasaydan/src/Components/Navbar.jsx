@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import pasaydanLogo from "../assets/pixelcut-export.png";
 import { useAuth } from "../Contexts/AuthContext";
+import { MdOutlinePerson4 } from "react-icons/md";
+import { AiOutlineLogout } from "react-icons/ai";
 import axios from "axios";
 import { useState } from "react";
 
@@ -29,7 +31,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="w-full h-20 border-l border-r  text-slate-900 flex justify-between items-center px-8">
+      <nav className="w-full shadow-md shadow-grey-300 h-20 border-l border-r  text-slate-900 flex justify-between items-center px-8">
         {/* Logo and Title */}
         <div className="md:w-[20%] w-[60%] flex items-center gap-4">
           <img className="w-12 h-12" src={pasaydanLogo} alt="Pasaydan Logo" />
@@ -42,24 +44,36 @@ function Navbar() {
         </div>
 
         {/* Navigation Links for desktop */}
-        <ul className="w-[50%] hidden md:flex items-center justify-center space-x-6 text-sm">
+        <ul className="w-[50%] hidden md:flex items-center justify-center space-x-6 text-md">
           <li
             onClick={() => navigate("/")}
-            className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#6495ed] transition-all duration-300"
+            className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#032d60] transition-all duration-300"
           >
             Home
           </li>
           <li
-            onClick={() => navigate("/about")}
-            className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#6495ed] transition-all duration-300"
+            onClick={() => navigate("/drive")}
+            className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#032d60] transition-all duration-300"
           >
-            About
+            Drives
           </li>
-          <li className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#6495ed] transition-all duration-300">
+          <li
+            onClick={() => navigate("/partnerships")}
+            className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#032d60] transition-all duration-300"
+          >
             Partnerships
           </li>
-          <li className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#6495ed] transition-all duration-300">
-            Drives
+          <li
+            onClick={() => navigate("/comments")}
+            className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#032d60] transition-all duration-300"
+          >
+            Comments
+          </li>
+          <li
+            onClick={() => navigate("/about")}
+            className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#032d60] transition-all duration-300"
+          >
+            About
           </li>
         </ul>
 
@@ -68,24 +82,23 @@ function Navbar() {
           {!isAuthenticated ? (
             <button
               onClick={() => navigate("/auth")}
-              className="px-5 py-1.5 bg-[#6495ed] rounded-[4px] text-xs font-semibold hover:bg-[#014487] text-white transition-all duration-300"
+              className="px-4 py-1 bg-[#7678ed] rounded-[4px] text-md font-semibold hover:bg-[#014487] text-white transition-all duration-300"
             >
-              Sign In / Up
+              Join us
             </button>
           ) : (
             <>
               <button
                 onClick={() => navigate("/dashboard")}
-                className="px-5 py-1.5 bg-[#6495ed] text-sm rounded-[3px] hover:bg-[#014487] text-white transition-all duration-300"
+                className=" text-slate-900 text-2xl rounded-[3px] transition-all duration-300"
               >
-                Profile
-                {/* {user.name.slice(0, 10)} */}
+                <MdOutlinePerson4 />
               </button>
               <button
                 onClick={handleLogout}
-                className="px-5 py-1.5 hidden md:block border border-[#6495ed] text-sm bg-slate-50 rounded-[4px] hover:text-slate-900 text-[#6495ed] transition-all duration-300"
+                className="hidden md:block text-2xl bg-slate-50 rounded-[4px] hover:text-slate-900 text-slate-900 transition-all duration-300"
               >
-                Logout
+                <AiOutlineLogout />
               </button>
             </>
           )}
@@ -167,6 +180,9 @@ function Navbar() {
           </li>
           <li className="cursor-pointer text-gray-800 hover:text-violet-500 transition-all duration-300">
             Drives
+          </li>
+          <li className="cursor-pointer text-gray-800 hover:text-violet-500 transition-all duration-300">
+            Comments
           </li>
 
           {!isAuthenticated ? (

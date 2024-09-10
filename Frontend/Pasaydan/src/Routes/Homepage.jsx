@@ -6,6 +6,7 @@ import LandingPage from "../Components/LandingPage";
 import { siteSettingsContext } from "../Contexts/SiteSettings";
 import WhatWeDo from "../Components/Whatwedo";
 import Metrics from "../Components/Metrics";
+import Certificates from "../Components/Certificates";
 
 function Homepage() {
   const { advBar } = useContext(siteSettingsContext);
@@ -16,6 +17,7 @@ function Homepage() {
         <LandingPage />
         <WhatWeDo />
         <Metrics />
+        <Certificates />
       </div>
       <div className="w-full h-fit">
         <ContactUs />

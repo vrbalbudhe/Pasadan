@@ -1,5 +1,4 @@
-
-function Drive() {
+function Comments() {
   return (
     <div>
       
@@ -7,4 +6,4 @@ function Drive() {
   )
 }
 
-export default Drive
+export default Comments

@@ -32,22 +32,20 @@ export const RequiredAuth = () => {
   }
 
   return isAuthenticated ? (
-    <div className="w-[100%] h-[100vh] bg-white flex flex-col justify-start items-center">
-      {/* Navbar */}
-      <div className="md:w-[80%] md:h-[10%] w-full">
+    <div className="w-full h-fit flex flex-col justify-start items-center">
+      {/* Navigation Bar */}
+      <div className="w-full md:w-[100%] h-full">
         <Navbar />
       </div>
 
       {/* Content */}
-      <div className="md:w-[80%] md:min-h-[100vh] w-full">
-        <div className="w-full h-fit">
-          <Outlet />
-        </div>
+      <div className="w-full md:w-[100%] min-h-[100vh]">
+        <Outlet />
+      </div>
 
-        {/* Footer */}
-        <div className="w-full h-fit bottom-0 mt-10">
-          <Footer />
-        </div>
+      {/* Footer */}
+      <div className="w-full md:w-[100%] h-full ">
+        <Footer />
       </div>
     </div>
   ) : (
