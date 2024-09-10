@@ -29,7 +29,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="w-full h-20 border-l border-r border-b bg-white text-slate-900 flex justify-between items-center px-8">
+      <nav className="w-full h-20 border-l border-r  text-slate-900 flex justify-between items-center px-8">
         {/* Logo and Title */}
         <div className="md:w-[20%] w-[60%] flex items-center gap-4">
           <img className="w-12 h-12" src={pasaydanLogo} alt="Pasaydan Logo" />

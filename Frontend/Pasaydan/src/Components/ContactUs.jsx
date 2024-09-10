@@ -62,7 +62,7 @@ function ContactUs() {
         </h1>
         <h1 className="text-zinc-800 text-xl font-semibold text-left w-full p-2">Feel Free To Connct With Us!</h1>
       </div>
-      <div className="w-[40%] bg-white border-r border-l border-t-2 border-b-2 p-6 shadow-sm">
+      <div className="w-[40%] bg-white border-r border-l border-t-2 border-b-2 p-6 shadow-md shadow-zinc-400">
         <div className="w-full flex justify-between items-center mb-6">
           <h2 className="w-1/2 text-xl font-bold tracking-tight">Contact Us</h2>
         </div>
