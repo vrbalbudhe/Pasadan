@@ -2,7 +2,7 @@ import React from 'react';
 
 const WhatWeDo = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex flex-col items-center justify-center ">
       {/* Title */}
       <h1 className="text-5xl font-bold text-gray-800 mb-12">What We Do</h1>
 

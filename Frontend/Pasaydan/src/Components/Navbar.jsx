@@ -29,40 +29,36 @@ function Navbar() {
 
   return (
     <>
-      <nav className="w-full h-14 border-b border-l border-r shadow-md bg-white text-slate-900 flex justify-between items-center px-8">
+      <nav className="w-full h-20 border-l border-r border-b bg-white text-slate-900 flex justify-between items-center px-8">
         {/* Logo and Title */}
         <div className="md:w-[20%] w-[60%] flex items-center gap-4">
-          <img className="w-10 h-10" src={pasaydanLogo} alt="Pasaydan Logo" />
+          <img className="w-12 h-12" src={pasaydanLogo} alt="Pasaydan Logo" />
           <h1
             onClick={() => navigate("/")}
-            className="text-md text-slate-800 duration-300 cursor-pointer font-semibold"
+            className="text-lg text-slate-800 duration-300 cursor-pointer font-semibold"
           >
             पसायदान
           </h1>
         </div>
 
         {/* Navigation Links for desktop */}
-        <ul className="w-[50%] hidden md:flex items-center justify-center space-x-6 text-xs font-semibold">
+        <ul className="w-[50%] hidden md:flex items-center justify-center space-x-6 text-sm">
           <li
             onClick={() => navigate("/")}
-            className="relative group cursor-pointer text-gray-800 -tracking-tight hover:text-zinc-700 transition-all duration-300"
+            className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#6495ed] transition-all duration-300"
           >
             Home
           </li>
           <li
             onClick={() => navigate("/about")}
-            className="relative group cursor-pointer text-gray-800 -tracking-tight hover:text-zinc-700 transition-all duration-300"
+            className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#6495ed] transition-all duration-300"
           >
             About
           </li>
-          <li
-            className="relative group cursor-pointer text-gray-800 -tracking-tight hover:text-zinc-700 transition-all duration-300"
-          >
+          <li className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#6495ed] transition-all duration-300">
             Partnerships
           </li>
-          <li
-            className="relative group cursor-pointer text-gray-800 -tracking-tight hover:text-zinc-700 transition-all duration-300"
-          >
+          <li className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#6495ed] transition-all duration-300">
             Drives
           </li>
         </ul>
@@ -72,21 +68,22 @@ function Navbar() {
           {!isAuthenticated ? (
             <button
               onClick={() => navigate("/auth")}
-              className="px-2 py-2 bg-violet-500 text-xs font-semibold hover:bg-blue-500 text-white transition-all duration-300"
+              className="px-5 py-1.5 bg-[#6495ed] rounded-[4px] text-xs font-semibold hover:bg-[#014487] text-white transition-all duration-300"
             >
-              SignIn / SignUp
+              Sign In / Up
             </button>
           ) : (
             <>
               <button
                 onClick={() => navigate("/dashboard")}
-                className="px-2 py-1 bg-gray-200 text-xs font-semibold rounded-md hover:bg-blue-500 hover:text-white transition-all duration-300"
+                className="px-5 py-1.5 bg-[#6495ed] text-sm rounded-[3px] hover:bg-[#014487] text-white transition-all duration-300"
               >
-                {user.name}
+                Profile
+                {/* {user.name.slice(0, 10)} */}
               </button>
               <button
                 onClick={handleLogout}
-                className="px-2 py-1 hidden md:block bg-gray-200 text-xs font-semibold rounded-md hover:bg-blue-500 hover:text-white transition-all duration-300"
+                className="px-5 py-1.5 hidden md:block border border-[#6495ed] text-sm bg-slate-50 rounded-[4px] hover:text-slate-900 text-[#6495ed] transition-all duration-300"
               >
                 Logout
               </button>
@@ -95,7 +92,7 @@ function Navbar() {
         </div>
 
         {/* Burger Icon for small screens */}
-        <div className="md:hidden w-[10%] flex justify-center items-center">
+        <div className="md:hidden w-[10%] flex justify-end items-center">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-slate-800 focus:outline-none"
@@ -178,7 +175,7 @@ function Navbar() {
                 navigate("/auth");
                 setIsOpen(false);
               }}
-              className="px-4 py-2 bg-violet-500 text-white font-semibold rounded-md hover:bg-blue-500 transition-all duration-300"
+              className="px-4 py-2 bg-[#6495ed] text-white font-semibold rounded-md hover:bg-blue-500 transition-all duration-300"
             >
               SignIn / SignUp
             </button>

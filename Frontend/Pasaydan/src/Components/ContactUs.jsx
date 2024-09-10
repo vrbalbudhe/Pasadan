@@ -46,12 +46,25 @@ function ContactUs() {
   };
 
   return (
-    <div className="w-full h-fit flex flex-col justify-center items-center py-2 pl-2 pr-2 md:pr-2 md:pl-2">
-      <div className="w-[100%] bg-white border-r border-l border-t-2 border-b-2 p-6 shadow-sm">
+    <div className="w-full h-fit flex md:pt-20 md:pb-20 pt-0 pb-0 bg-[#dfe7fd] justify-center items-center py-2 pl-2 pr-2 md:pr-2 md:pl-2">
+      <div className="w-[40%] h-full flex pl-2 p-2 justify-center items-center flex-col">
+        <h1 className="p-2 w-full h-[50%] text-7xl text-[#7678ed]">
+          Contact Us
+        </h1>
+        <h1 className="p-5 w-full h-[50%] text-md pl-2 text-slate-900 tracking-tight">
+          In case you have any query, or want any details about the type of{" "}
+          <span className="text-[#7678ed] font-semibold">Donations</span> or
+          want to donate/ Participate in Our
+          <span className="text-[#7678ed] font-semibold">
+            {" "}
+            Cycle Donation Drive.
+          </span>
+        </h1>
+        <h1 className="text-zinc-800 text-xl font-semibold text-left w-full p-2">Feel Free To Connct With Us!</h1>
+      </div>
+      <div className="w-[40%] bg-white border-r border-l border-t-2 border-b-2 p-6 shadow-sm">
         <div className="w-full flex justify-between items-center mb-6">
-          <h2 className="w-1/2 text-xl font-bold tracking-tight text-gray-800">
-            Contact Us
-          </h2>
+          <h2 className="w-1/2 text-xl font-bold tracking-tight">Contact Us</h2>
         </div>
 
         <form onSubmit={handleContactUs} className="space-y-6">
@@ -107,7 +120,7 @@ function ContactUs() {
               name="message"
               id="message"
               required
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#6495ed] focus:border-[#6495ed] sm:text-sm"
               placeholder="Write your message here..."
               rows="5"
               value={formData.message}
@@ -120,7 +133,7 @@ function ContactUs() {
             {" "}
             <button
               type="submit"
-              className="group relative w-full md:w-1/2 lg:w-1/3 py-2 px-4 border border-transparent text-sm font-medium rounded-sm text-white bg-violet-400 hover:bg-violet-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="group relative w-full md:w-1/2 lg:w-1/3 py-2 px-4 border border-transparent text-sm font-medium rounded-sm text-white bg-[#6495ed] hover:bg-[#6495ed] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               Send Message
             </button>

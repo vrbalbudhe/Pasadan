@@ -66,11 +66,17 @@ const LoginSignupPage = () => {
   const handleRegistration = async (e) => {
     setError("");
     e.preventDefault();
+
     const formData = new FormData(e.target);
-    const email = formData.get("email");
     const password = formData.get("password");
     const confirmPassword = formData.get("confirmPassword");
     const name = formData.get("name");
+
+    // Use email from state instead of formData
+    if (!email) {
+      setError("Email is required.");
+      return;
+    }
 
     if (password !== confirmPassword) {
       setPasswordMatch(false);
@@ -88,7 +94,7 @@ const LoginSignupPage = () => {
       const res = await axios.post(
         "http://localhost:8000/pasaydan/auth/register",
         {
-          email,
+          email, // Use email from state
           password,
           name,
         },
@@ -104,20 +110,49 @@ const LoginSignupPage = () => {
     }
   };
 
-  const handleOtpSubmit = () => {
-    // Simulate OTP verification animation
-    setOtpVerified(true);
-    setTimeout(() => {
-      setOtpVerified(false); // Reset animation after showing it for a while
-      setEmailVerified(true); // Show email verified after OTP verification
-      setOtpSent(false); // Hide OTP input and resend button after verification
-    }, 3000);
+  const handleOtpSubmit = async () => {
+    try {
+      const res = await axios.post(
+        "http://localhost:8000/pasaydan/auth/register/otpValidate",
+        {
+          email,
+          otp,
+        },
+        {
+          withCredentials: true,
+        }
+      );
+      if (res.data.success) {
+        setOtpVerified(true);
+        setTimeout(() => {
+          setOtpVerified(false);
+          setEmailVerified(true);
+          setOtpSent(false);
+        }, 3000);
+      }
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
-  const handleEmailVerification = () => {
-    // Simulate sending OTP
-    setOtpSent(true);
-    setResendTimeout(15); // Reset the timer to 15 seconds
+  const handleEmailVerification = async () => {
+    try {
+      const res = await axios.post(
+        "http://localhost:8000/pasaydan/auth/register/verifyEmail",
+        {
+          email,
+        },
+        {
+          withCredentials: true,
+        }
+      );
+      if (res.data.success) {
+        setOtpSent(true);
+        setResendTimeout(15);
+      }
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   const handleResendOtp = () => {
@@ -167,11 +202,11 @@ const LoginSignupPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="bg-white shadow-lg rounded-lg flex overflow-hidden max-w-4xl w-full relative">
+    <div className="min-h-[100vh] overflow-y-hidden md:min-h-screen flex items-center py-2 pl-2 pr-2 md:pr-2 md:pl-2 justify-center">
+      <div className="bg-white shadow-lg rounded-lg md:flex overflow-hidden max-w-4xl w-full relative">
         {/* Image Section for Login */}
         <div
-          className={`hidden md:block w-1/2 bg-cover transition-all duration-700 ease-in-out ${isLogin ? "translate-x-0" : "-translate-x-full"}`}
+          className={`w-full md:w-1/2 bg-cover transition-all duration-700 ease-in-out ${isLogin ? "translate-x-0" : "-translate-x-full"}`}
           style={{ backgroundImage: `url('/images/signup_jpg.jpeg')` }}
         >
           <div className="h-full flex flex-col justify-center p-8">
@@ -184,11 +219,13 @@ const LoginSignupPage = () => {
 
         {/* Form Section */}
         <div
-          className={`w-full md:w-1/2 p-8 transition-all duration-700 ease-in-out ${isLogin ? "" : "-translate-x-full"}`}
+          className={`w-full md:w-1/2  p-8 transition-all duration-700 ease-in-out ${isLogin ? "" : "-translate-x-full"}`}
         >
           {isLogin ? (
             <>
-              <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
+              <h2 className="text-2xl font-bold text-left md:text-center mb-6">
+                Login
+              </h2>
               <form onSubmit={handleLogin}>
                 <div className="mb-4">
                   <label className="block text-gray-700">Email</label>
@@ -280,7 +317,7 @@ const LoginSignupPage = () => {
                       type="button"
                       onClick={handleEmailVerification}
                       className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-200 mt-7"
-                      disabled={otpSent} // Disable the button after clicking once
+                      disabled={otpSent}
                     >
                       Verify Email
                     </button>
@@ -293,20 +330,20 @@ const LoginSignupPage = () => {
                       <div className="flex-grow mr-2">
                         <label className="block text-gray-700">OTP</label>
                         <input
-                          type="text"
+                          type="number"
                           name="otp"
                           value={otp}
                           onChange={(e) => setOtp(e.target.value)}
                           className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                           placeholder="Enter OTP"
-                          disabled={emailVerified} // Lock OTP field after verification
+                          disabled={emailVerified}
                         />
                       </div>
                       <button
                         type="button"
                         onClick={handleOtpSubmit}
                         className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-200 mt-7"
-                        disabled={emailVerified} // Disable button after verification
+                        disabled={emailVerified}
                       >
                         Submit OTP
                       </button>
@@ -409,6 +446,9 @@ const LoginSignupPage = () => {
                   Sign Up
                 </button>
               </form>
+              <h1 className="w-full flex justify-center items-center text-red-400">
+                {error}
+              </h1>
 
               {showPopup && (
                 <div className="fixed top-5 right-5 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg">
@@ -430,7 +470,7 @@ const LoginSignupPage = () => {
         </div>
 
         <div
-          className={`hidden md:block w-1/2 bg-cover transition-all duration-700 ease-in-out absolute top-0 right-0 h-full ${isLogin ? "translate-x-full" : "translate-x-0"}`}
+          className={`w-full md:w-1/2 bg-cover transition-all duration-700 ease-in-out absolute top-0 right-0 h-full ${isLogin ? "translate-x-full" : "translate-x-0"}`}
           style={{ backgroundImage: `url('/images/login_jpg.jpeg')` }}
         >
           <div className="h-full flex flex-col justify-center p-8">

@@ -23,7 +23,7 @@ export const AdminUserInfoProvider = ({ children }) => {
     }
 
     fetchUsers();
-  }, []);
+  }, [users]);
 
   return (
     <AdminContext.Provider value={users}>{children}</AdminContext.Provider>

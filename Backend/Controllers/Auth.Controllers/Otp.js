@@ -58,10 +58,11 @@ const otpGenerator = async (email, expiresInMinutes = 1) => {
 
 const verifyOtp = async (otpCode, email) => {
   try {
+    let intOtp = parseInt(otpCode, 10);
     const otpRecord = await prisma.otp.findFirst({
       where: {
         email: email,
-        otp: otpCode,
+        otp: intOtp,
       },
       orderBy: {
         createdAt: "desc",

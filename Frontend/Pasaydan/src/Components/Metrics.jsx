@@ -1,5 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import { FaTrophy, FaBicycle, FaGlobe, FaCommentDots } from "react-icons/fa";
+import { GiDiamondTrophy } from "react-icons/gi";
+import { IoMdBicycle } from "react-icons/io";
+import { LuMessagesSquare } from "react-icons/lu";
+import { FaGlobeAfrica } from "react-icons/fa";
 
 const Metrics = () => {
   const targetValues = {
@@ -98,17 +102,18 @@ const Metrics = () => {
   return (
     <div
       ref={metricsRef}
-      className="md:min-h-screen h-fit flex flex-col py-2 pl-2 pr-2 mt-20 mb-20 md:mt-0 md:mb-0 md:pr-2 md:pl-2 items-center justify-center bg-white text-gray-900"
+      className="md:min-h-screen h-fit flex flex-col py-2 pl-2 pr-2 mt-20 mb-20 md:mt-0 md:mb-0 md:pr-2 md:pl-2 items-center justify-center bg-[#fdfffc] text-gray-900"
     >
-      <h1 className="text-center text-2xl pl-5 pr-5 md:pr-0 md:pl-0 md:text-4xl font-bold mb-10">
+      <h1 className="text-[#032d60] text-2xl pl-5 pr-5 md:pr-0 md:pl-0 md:text-4xl font-semibold mb-10">
         THE GOAL: 1 MILLION BICYCLES BY 2025
       </h1>
 
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
         {/* Award Won */}
         <div className="flex flex-col items-center">
-          <FaTrophy className="text-yellow-500 text-4xl md:text-6xl mb-4" />
-          <h2 className="text-2xl md:text-5xl font-bold">
+          {/* <FaTrophy className="text-yellow-500 text-4xl md:text-6xl mb-4" /> */}
+          <GiDiamondTrophy className="text-slate-800 text-4xl md:text-6xl mb-4" />
+          <h2 className="text-2xl md:text-2xl font-bold">
             {Math.floor(metrics.awards)}+
           </h2>
           <p className="text-lg">Awards Won</p>
@@ -116,8 +121,8 @@ const Metrics = () => {
 
         {/* Bicycles Delivered */}
         <div className="flex flex-col items-center">
-          <FaBicycle className="text-yellow-500 text-4xl md:text-6xl mb-4" />
-          <h2 className="text-2xl md:text-5xl font-bold">
+          <IoMdBicycle className="text-slate-800 text-4xl md:text-6xl mb-4" />
+          <h2 className="text-2xl md:text-2xl font-bold">
             {Math.floor(metrics.bicycles)}+
           </h2>
           <p className="text-lg">Bicycles Delivered</p>
@@ -125,8 +130,8 @@ const Metrics = () => {
 
         {/* Global Support */}
         <div className="flex flex-col items-center">
-          <FaGlobe className="text-yellow-500 text-4xl md:text-6xl mb-4" />
-          <h2 className="text-2xl md:text-5xl font-bold">
+          <FaGlobeAfrica className="text-slate-800 text-4xl md:text-6xl mb-4" />
+          <h2 className="text-2xl md:text-2xl font-bold">
             {Math.floor(metrics.globalSupport)}+
           </h2>
           <p className="text-lg">Global Support</p>
@@ -134,8 +139,8 @@ const Metrics = () => {
 
         {/* Comments */}
         <div className="flex flex-col items-center">
-          <FaCommentDots className="text-yellow-500 text-4xl md:text-6xl mb-4" />
-          <h2 className="text-2xl md:text-5xl font-bold">
+          <LuMessagesSquare className="text-slate-800 text-4xl md:text-6xl mb-4" />
+          <h2 className="text-2xl md:text-2xl font-bold">
             {Math.floor(metrics.comments)}+
           </h2>
           <p className="text-lg">Comments</p>
