@@ -5,21 +5,12 @@ import Footer from "../Components/Footer";
 
 export const Layout = () => {
   return (
-    <div className="w-full h-fit flex flex-col justify-start items-center">
-      {/* Navigation Bar */}
-      <div className="w-full md:w-[100%] h-full">
-        <Navbar />
-      </div>
-
-      {/* Content */}
+    <div className="w-full sticky top-0 h-fit flex flex-col justify-start items-center">
+      <Navbar />
       <div className="w-full md:w-[100%] min-h-[100vh]">
         <Outlet />
       </div>
-
-      {/* Footer */}
-      <div className="w-full md:w-[100%] h-full ">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 };
@@ -33,20 +24,11 @@ export const RequiredAuth = () => {
 
   return isAuthenticated ? (
     <div className="w-full h-fit flex flex-col justify-start items-center">
-      {/* Navigation Bar */}
-      <div className="w-full md:w-[100%] h-full">
-        <Navbar />
-      </div>
-
-      {/* Content */}
+      <Navbar />
       <div className="w-full md:w-[100%] min-h-[100vh]">
         <Outlet />
       </div>
-
-      {/* Footer */}
-      <div className="w-full md:w-[100%] h-full ">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   ) : (
     <Navigate to="/auth" />

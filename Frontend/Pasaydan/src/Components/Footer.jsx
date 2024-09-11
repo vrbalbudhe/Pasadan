@@ -194,7 +194,7 @@ function Footer() {
       </div>
 
       {/* Footer Bottom */}
-      <div className="w-full h-[20%] flex justify-center items-center p-2 border-t-2 border-slate-400">
+      <div className="w-full h-[20%] flex justify-center items-center p-2">
         <p className="font-semibold text-slate-200 text-md -tracking-tighter">prasaydan@2024 _ </p>
         <p className="font-semibold text-slate-200 text-md -tracking-tighter">All Rights Reserved</p>
       </div>
