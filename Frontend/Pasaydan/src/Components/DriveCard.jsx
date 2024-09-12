@@ -23,13 +23,13 @@ function DriveCard({ driv }) {
   }, [driv.timeperiod]);
 
   return (
-    <div className="w-[340px] h-fit hover:scale-105 duration-300 ease-in-out rounded-2xl shadow-sm shadow-slate-300">
-      <div className="w-full h-[220px] bg-gradient-to-b rounded-t-2xl from-violet-400 via-violet-200 to-violet-50">
+    <div className="w-[340px] h-fit hover:scale-105 duration-300 ease-in-out rounded-md shadow-md border-r border-l border-slate-100 shadow-zinc-300">
+      <div className="w-full h-[220px] bg-gradient-to-b rounded-t-md from-violet-400 via-violet-200 to-violet-50">
         <p className="p-2 text-4xl text-white">{driv.title}</p>
       </div>
       <div className="w-full h-[240px] flex justify-start p-5 items-center flex-col">
         <div className="w-full h-[10%] flex justify-between items-center">
-          <p className="w-[50%] text-left p-1">
+          <p className="w-fit bg-blue-50 px-2 rounded-md text-left p-1">
             <span className="inline-block mr-1">
               <CiLocationOn />
             </span>
@@ -37,7 +37,7 @@ function DriveCard({ driv }) {
           </p>
           <div className="w-[30%] px-3 h-full flex justify-center items-center">
             <p
-              className={`p-1 cursor-pointer w-fit px-3 rounded-xl py-1 text-slate-800 font-semibold 
+              className={`p-1 cursor-pointer w-fit px-3 rounded-sm py-1 text-slate-800 font-semibold 
                 ${status === "Live" ? "bg-green-300" : status === "Upcoming" ? "bg-blue-300" : "bg-red-300"}
               `}
             >

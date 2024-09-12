@@ -49,3 +49,13 @@ model drive {
   timeperiod  String
   createdAt   DateTime @default(now())
 }
+
+model comment {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  subtitle    String
+  description String
+  dtype       String
+  location    String
+  createdAt   DateTime @default(now())
+}

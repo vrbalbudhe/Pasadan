@@ -32,7 +32,7 @@ function Navbar() {
       window.location.reload();
     } catch (error) {
       console.log(error);
-      return resizeBy.status(501).json({
+      return res.status(501).json({
         message: "Unable to handle the logout",
         success: false,
       });
@@ -51,8 +51,15 @@ function Navbar() {
       >
         <div className="w-[90%] h-20 mx-auto flex justify-between items-center px-8">
           {/* Logo and Title */}
-          <div className="flex items-center gap-4 cursor-pointer" onClick={() => navigate("/")}>
-            <img className="w-12 h-12 rounded-full object-cover" src={pasaydanLogo} alt="Pasaydan Logo" />
+          <div
+            className="flex items-center gap-4 cursor-pointer"
+            onClick={() => navigate("/")}
+          >
+            <img
+              className="w-12 h-12 rounded-full object-cover"
+              src={pasaydanLogo}
+              alt="Pasaydan Logo"
+            />
             <h1 className="text-2xl font-semibold hover:text-blue-200 transition-all duration-300">
               पसायदान
             </h1>
@@ -108,7 +115,11 @@ function Navbar() {
             ) : (
               <>
                 <button
-                  onClick={() => navigate(user.role === "admin" ? "/admin/dashboard" : "/dashboard")}
+                  onClick={() =>
+                    navigate(
+                      user.role === "admin" ? "/admin/dashboard" : "/dashboard"
+                    )
+                  }
                   className="text-2xl hover:text-blue-300 transition-all duration-300"
                 >
                   <MdOutlinePerson4 />
@@ -125,7 +136,10 @@ function Navbar() {
 
           {/* Mobile Hamburger Icon */}
           <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-2xl focus:outline-none">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-2xl focus:outline-none"
+            >
               {isOpen ? <FaTimes /> : <FaBars />}
             </button>
           </div>
@@ -140,24 +154,57 @@ function Navbar() {
       >
         <div className="flex justify-between items-center p-4">
           <h1 className="text-xl text-white">Menu</h1>
-          <button onClick={() => setIsOpen(false)} className="text-white text-3xl focus:outline-none">
+          <button
+            onClick={() => setIsOpen(false)}
+            className="text-white text-3xl focus:outline-none"
+          >
             <FaTimes />
           </button>
         </div>
         <ul className="p-4 space-y-6 text-white text-lg">
-          <li onClick={() => { navigate("/"); setIsOpen(false); }} className="cursor-pointer hover:text-blue-300 transition-all duration-300">
+          <li
+            onClick={() => {
+              navigate("/");
+              setIsOpen(false);
+            }}
+            className="cursor-pointer hover:text-blue-300 transition-all duration-300"
+          >
             Home
           </li>
-          <li onClick={() => { navigate("/about"); setIsOpen(false); }} className="cursor-pointer hover:text-blue-300 transition-all duration-300">
+          <li
+            onClick={() => {
+              navigate("/about");
+              setIsOpen(false);
+            }}
+            className="cursor-pointer hover:text-blue-300 transition-all duration-300"
+          >
             About
           </li>
-          <li onClick={() => { navigate("/partnerships"); setIsOpen(false); }} className="cursor-pointer hover:text-blue-300 transition-all duration-300">
+          <li
+            onClick={() => {
+              navigate("/partnerships");
+              setIsOpen(false);
+            }}
+            className="cursor-pointer hover:text-blue-300 transition-all duration-300"
+          >
             Partnerships
           </li>
-          <li onClick={() => { navigate("/drive"); setIsOpen(false); }} className="cursor-pointer hover:text-blue-300 transition-all duration-300">
+          <li
+            onClick={() => {
+              navigate("/drive");
+              setIsOpen(false);
+            }}
+            className="cursor-pointer hover:text-blue-300 transition-all duration-300"
+          >
             Drives
           </li>
-          <li onClick={() => { navigate("/comments"); setIsOpen(false); }} className="cursor-pointer hover:text-blue-300 transition-all duration-300">
+          <li
+            onClick={() => {
+              navigate("/comments");
+              setIsOpen(false);
+            }}
+            className="cursor-pointer hover:text-blue-300 transition-all duration-300"
+          >
             Comments
           </li>
           {!isAuthenticated ? (
@@ -173,7 +220,10 @@ function Navbar() {
           ) : (
             <>
               <button
-                onClick={() => { navigate("/dashboard"); setIsOpen(false); }}
+                onClick={() => {
+                  navigate("/dashboard");
+                  setIsOpen(false);
+                }}
                 className="px-4 py-2 bg-white text-[#032d60] font-semibold rounded-full hover:bg-blue-700 hover:text-white transition-all duration-300"
               >
                 {user.name}
