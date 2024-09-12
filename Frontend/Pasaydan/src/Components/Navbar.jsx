@@ -5,6 +5,7 @@ import { MdOutlinePerson4 } from "react-icons/md";
 import { AiOutlineLogout } from "react-icons/ai";
 import { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import axios from "axios";
 
 function Navbar() {
   const { user, isAuthenticated } = useAuth();
