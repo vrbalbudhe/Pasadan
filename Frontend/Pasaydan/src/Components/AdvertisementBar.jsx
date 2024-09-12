@@ -29,7 +29,7 @@ function AdvertisementBar() {
   }
 
   return (
-    <div className="w-full md:h-80 py-2 bg-[#f8f9fa] border border-b flex flex-col justify-center items-center relative">
+    <div className="w-full md:h-80 py-2 flex flex-col justify-center items-center relative">
       <img
         src={`http://localhost:8000/uploads/${images[currentImageIndex].filename}`}
         alt="Advertisement"

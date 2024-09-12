@@ -6,6 +6,7 @@ import { AuthProvider } from "./Contexts/AuthContext.jsx";
 import { AdminUserInfoProvider } from "./Contexts/AdminContext.jsx";
 import { SiteSettingContextProvider } from "./Contexts/SiteSettings.jsx";
 import { AdvertisementProvider } from "./Contexts/AdvertisementContext.jsx";
+import { DriveProvider } from "./Contexts/DriveContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -13,7 +14,9 @@ createRoot(document.getElementById("root")).render(
       <AdvertisementProvider>
         <AdminUserInfoProvider>
           <AuthProvider>
-            <App />
+            <DriveProvider>
+              <App />
+            </DriveProvider>
           </AuthProvider>
         </AdminUserInfoProvider>
       </AdvertisementProvider>

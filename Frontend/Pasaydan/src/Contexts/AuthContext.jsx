@@ -21,6 +21,7 @@ export const AuthProvider = ({ children }) => {
           setUser({ userId: response.data.userId });
           setUser({ email: response.data.email });
           setUser({ name: response.data.name });
+          setUser({ role: response.data.role });
           setIsAuthenticated(true);
         } else {
           setIsAuthenticated(false);
@@ -34,7 +35,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     verifyUserToken();
-  }, [isAuthenticated]);
+  }, []);
 
   return (
     <AuthContext.Provider

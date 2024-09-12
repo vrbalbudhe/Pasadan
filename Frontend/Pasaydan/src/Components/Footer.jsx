@@ -141,6 +141,12 @@ function Footer() {
             >
               Privacy-Policy
             </li>
+            <li
+              onClick={() => navigate()}
+              className="cursor-pointer hover:text-slate-500 hover:underline"
+            >
+              Admin Login
+            </li>
           </ul>
         </div>
 
@@ -195,8 +201,12 @@ function Footer() {
 
       {/* Footer Bottom */}
       <div className="w-full h-[20%] flex justify-center items-center p-2">
-        <p className="font-semibold text-slate-200 text-md -tracking-tighter">prasaydan@2024 _ </p>
-        <p className="font-semibold text-slate-200 text-md -tracking-tighter">All Rights Reserved</p>
+        <p className="font-semibold text-slate-200 text-md -tracking-tighter">
+          prasaydan@2024 _{" "}
+        </p>
+        <p className="font-semibold text-slate-200 text-md -tracking-tighter">
+          All Rights Reserved
+        </p>
       </div>
     </div>
   );

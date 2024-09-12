@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useState } from "react";
-import { Layout, RequiredAuth } from "./Routes/Layout";
+import { AdminAuth, Layout, RequiredAuth } from "./Routes/Layout";
 import Homepage from "./Routes/Homepage";
 import LoginSignupPage from "./Routes/LoginSignupPage";
 import Dashboard from "./Routes/Dashboard";
@@ -24,23 +24,29 @@ function App() {
           element: <Homepage advOn={advOn} uploadedImages={uploadedImages} />,
         },
         {
-          path: "/about",
+          path: "about",
           element: <About />,
         },
         {
-          path: "/comments",
+          path: "comments",
           element: <Comments />,
         },
         {
-          path: "/drive",
+          path: "drive",
           element: <Drive />,
         },
         {
-          path: "/partnerships",
+          path: "partnerships",
           element: <Partnerships />,
         },
+      ],
+    },
+    {
+      path: "/admin",
+      element: <AdminAuth />,
+      children: [
         {
-          path: "/admin/dashboard",
+          path: "dashboard",
           element: (
             <AdminDashboard
               advOn={advOn}
@@ -56,7 +62,7 @@ function App() {
       element: <RequiredAuth />,
       children: [
         {
-          path: "/dashboard",
+          path: "dashboard",
           element: <Dashboard />,
         },
       ],

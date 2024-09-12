@@ -9,17 +9,26 @@ const {
   postAdvUploadImages,
   delAdvImageUploads,
 } = require("../Controllers/AdvImgUploads.Controllers/AdvImageUploads");
+const { verifyToken } = require("../Middlewares/verifyToken0");
+const { verifyAdmin } = require("../Middlewares/verifyAdmin");
 
 const router = express.Router();
 
 router.get("/visibility", getVisibility);
-router.post("/visibility", postVisibility);
-router.get("/advUploadImages", getAdvUploadImages);
+router.post("/visibility", verifyToken, verifyAdmin, postVisibility);
+router.get("/advUploadImages", verifyToken, verifyAdmin, getAdvUploadImages);
 router.post(
   "/postAdvUploadImages",
+  verifyToken,
+  verifyAdmin,
   upload.single("image"),
   postAdvUploadImages
 );
-router.delete("/delAdvUploadImages/:id", delAdvImageUploads);
+router.delete(
+  "/delAdvUploadImages/:id",
+  verifyToken,
+  verifyAdmin,
+  delAdvImageUploads
+);
 
 module.exports = router;

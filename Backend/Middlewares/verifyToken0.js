@@ -3,7 +3,6 @@ const asyncHandler = require("express-async-handler");
 
 const verifyToken = asyncHandler(async (req, res, next) => {
   const token = req.cookies?.token;
-  console.log(token);
   if (!token) {
     return res.status(401).json({
       message: "User is Not Authenticated",
@@ -26,6 +25,7 @@ const verifyToken = asyncHandler(async (req, res, next) => {
     }
 
     req.userId = payload.userId;
+    req.role = payload.role;
     next();
   });
 });

@@ -31,100 +31,112 @@ function Navbar() {
 
   return (
     <>
-      <nav className="w-full sticky top-0 shadow-md bg-white shadow-grey-300 h-20 border-l border-r  text-slate-900 flex justify-between items-center px-8">
-        {/* Logo and Title */}
-        <div className="md:w-[20%] w-[60%] flex items-center gap-4">
-          <img className="w-12 h-12" src={pasaydanLogo} alt="Pasaydan Logo" />
-          <h1
-            onClick={() => navigate("/")}
-            className="text-lg text-slate-800 duration-300 cursor-pointer font-semibold"
-          >
-            पसायदान
-          </h1>
-        </div>
+      <nav className="w-full sticky top-0 shadow-md bg-white z-50 shadow-grey-300 h-20 border-l border-r  text-slate-900 flex justify-center items-center px-8">
+        <div className="w-[80%] h-full flex justify-center items-center">
+          {/* Logo and Title */}
+          <div className="md:w-[20%] w-[60%] flex items-center gap-4">
+            <img className="w-12 h-12" src={pasaydanLogo} alt="Pasaydan Logo" />
+            <h1
+              onClick={() => navigate("/")}
+              className="text-lg text-slate-800 duration-300 cursor-pointer font-semibold"
+            >
+              पसायदान
+            </h1>
+          </div>
 
-        {/* Navigation Links for desktop */}
-        <ul className="w-[50%] hidden md:flex items-center justify-center space-x-6 text-md">
-          <li
-            onClick={() => navigate("/")}
-            className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#032d60] transition-all duration-300"
-          >
-            Home
-          </li>
-          <li
-            onClick={() => navigate("/drive")}
-            className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#032d60] transition-all duration-300"
-          >
-            Drives
-          </li>
-          <li
-            onClick={() => navigate("/partnerships")}
-            className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#032d60] transition-all duration-300"
-          >
-            Partnerships
-          </li>
-          <li
-            onClick={() => navigate("/comments")}
-            className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#032d60] transition-all duration-300"
-          >
-            Comments
-          </li>
-          <li
-            onClick={() => navigate("/about")}
-            className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#032d60] transition-all duration-300"
-          >
-            About
-          </li>
-        </ul>
+          {/* Navigation Links for desktop */}
+          <ul className="w-[50%] hidden md:flex items-center justify-center space-x-6 text-md">
+            <li
+              onClick={() => navigate("/")}
+              className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#032d60] transition-all duration-300"
+            >
+              Home
+            </li>
+            <li
+              onClick={() => navigate("/drive")}
+              className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#032d60] transition-all duration-300"
+            >
+              Drives
+            </li>
+            <li
+              onClick={() => navigate("/partnerships")}
+              className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#032d60] transition-all duration-300"
+            >
+              Partnerships
+            </li>
+            <li
+              onClick={() => navigate("/comments")}
+              className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#032d60] transition-all duration-300"
+            >
+              Comments
+            </li>
+            <li
+              onClick={() => navigate("/about")}
+              className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#032d60] transition-all duration-300"
+            >
+              About
+            </li>
+          </ul>
 
-        {/* Action Buttons for desktop */}
-        <div className="w-fit md:w-[30%] flex items-center justify-end space-x-4">
-          {!isAuthenticated ? (
+          {/* Action Buttons for desktop */}
+          <div className="w-fit md:w-[30%] flex items-center justify-end space-x-4">
+            {!isAuthenticated ? (
+              <button
+                onClick={() => navigate("/auth")}
+                className="px-4 py-1 bg-[#7678ed] rounded-[4px] text-md font-semibold hover:bg-[#014487] text-white transition-all duration-300"
+              >
+                Join us
+              </button>
+            ) : (
+              <>
+                {user.role === "admin" && (
+                  <button
+                    onClick={() => navigate("/admin/dashboard")}
+                    className=" text-slate-900 text-2xl rounded-[3px] transition-all duration-300"
+                  >
+                    <MdOutlinePerson4 />
+                  </button>
+                )}
+                {user.role === "user" && (
+                  <button
+                    onClick={() => navigate("/dashboard")}
+                    className=" text-slate-900 text-2xl rounded-[3px] transition-all duration-300"
+                  >
+                    <MdOutlinePerson4 />
+                  </button>
+                )}
+                <button
+                  onClick={handleLogout}
+                  className="hidden md:block text-2xl bg-slate-50 rounded-[4px] hover:text-slate-900 text-slate-900 transition-all duration-300"
+                >
+                  <AiOutlineLogout />
+                </button>
+              </>
+            )}
+          </div>
+
+          {/* Burger Icon for small screens */}
+          <div className="md:hidden w-[10%] flex justify-end items-center">
             <button
-              onClick={() => navigate("/auth")}
-              className="px-4 py-1 bg-[#7678ed] rounded-[4px] text-md font-semibold hover:bg-[#014487] text-white transition-all duration-300"
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-slate-800 focus:outline-none"
             >
-              Join us
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              </svg>
             </button>
-          ) : (
-            <>
-              <button
-                onClick={() => navigate("/dashboard")}
-                className=" text-slate-900 text-2xl rounded-[3px] transition-all duration-300"
-              >
-                <MdOutlinePerson4 />
-              </button>
-              <button
-                onClick={handleLogout}
-                className="hidden md:block text-2xl bg-slate-50 rounded-[4px] hover:text-slate-900 text-slate-900 transition-all duration-300"
-              >
-                <AiOutlineLogout />
-              </button>
-            </>
-          )}
-        </div>
-
-        {/* Burger Icon for small screens */}
-        <div className="md:hidden w-[10%] flex justify-end items-center">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-slate-800 focus:outline-none"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
-          </button>
+          </div>
         </div>
       </nav>
 

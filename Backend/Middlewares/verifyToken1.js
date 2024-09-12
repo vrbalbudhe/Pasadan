@@ -19,6 +19,7 @@ const verifyTokenAuth = asyncHandler(async (req, res) => {
       userId: decoded.userId,
       email: decoded.email,
       name: decoded.name,
+      role: decoded.role,
     });
   } catch (err) {
     // Token is invalid or expired

@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { FaEye, FaEyeSlash, FaCheckCircle } from "react-icons/fa"; // Import icons for eye and checkmark
 import { useAuth } from "../Contexts/AuthContext";
@@ -54,9 +54,15 @@ const LoginSignupPage = () => {
         }
       );
       if (res.data.success) {
-        setUser({ email: res.data.email }); // Update user state
+        setUser({ email: res.data.email, role: res.data.role });
         setIsAuthenticated(true);
-        navigate(`/`);
+
+        if (res.data.role === "admin") {
+          console.log("admin");
+          navigate(`/admin/dashboard`);
+        } else {
+          navigate(`/`);
+        }
       }
     } catch (error) {
       setError(error.message);

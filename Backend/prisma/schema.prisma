@@ -12,6 +12,7 @@ model User {
   email       String   @unique
   name        String
   password    String?
+  role        String   @default("user")
   otpVerified Boolean  @default(false)
   createdAt   DateTime @default(now())
 }
@@ -36,4 +37,15 @@ model AdvImage {
   filetype  String
   filesize  Int
   createdAt DateTime @default(now())
+}
+
+model drive {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  location    String
+  description String
+  status      String   @default("pending")
+  dtype       String
+  timeperiod  String
+  createdAt   DateTime @default(now())
 }

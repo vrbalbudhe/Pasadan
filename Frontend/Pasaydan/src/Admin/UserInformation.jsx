@@ -6,7 +6,7 @@ import { useState } from "react";
 
 function UserInformation() {
   const getUsers = useGetUsers();
-  const [users, setUsers] = useState(getUsers.users); 
+  const [users, setUsers] = useState(getUsers.users || []); 
 
   const deleteUser = async (userId) => {
     try {

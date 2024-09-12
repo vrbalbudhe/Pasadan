@@ -55,7 +55,12 @@ const Login = asyncHandler(async (req, res) => {
       });
     }
 
-    const tokenData = { userId: user.id, email: user.email, name: user.name };
+    const tokenData = {
+      userId: user.id,
+      email: user.email,
+      name: user.name,
+      role: user.role,
+    };
     const token = await generateToken(tokenData);
 
     res.cookie("token", token, {
@@ -67,6 +72,7 @@ const Login = asyncHandler(async (req, res) => {
     return res.status(200).json({
       message: "Login successful",
       success: true,
+      role: user.role,
       token: token,
     });
   } catch (error) {
