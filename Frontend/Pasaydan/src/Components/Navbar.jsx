@@ -3,13 +3,23 @@ import pasaydanLogo from "../assets/pixelcut-export.png";
 import { useAuth } from "../Contexts/AuthContext";
 import { MdOutlinePerson4 } from "react-icons/md";
 import { AiOutlineLogout } from "react-icons/ai";
-import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 function Navbar() {
   const { user, isAuthenticated } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleLogout = async () => {
     try {
@@ -31,83 +41,81 @@ function Navbar() {
 
   return (
     <>
-      <nav className="w-full sticky top-0 shadow-md bg-white z-50 shadow-grey-300 h-20 border-l border-r  text-slate-900 flex justify-center items-center px-8">
-        <div className="w-[80%] h-full flex justify-center items-center">
+      {/* Navbar */}
+      <nav
+        className={`w-full sticky top-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-[#032d60] shadow-md text-white"
+            : "bg-transparent text-slate-900"
+        }`}
+      >
+        <div className="w-[90%] h-20 mx-auto flex justify-between items-center px-8">
           {/* Logo and Title */}
-          <div className="md:w-[20%] w-[60%] flex items-center gap-4">
-            <img className="w-12 h-12" src={pasaydanLogo} alt="Pasaydan Logo" />
-            <h1
-              onClick={() => navigate("/")}
-              className="text-lg text-slate-800 duration-300 cursor-pointer font-semibold"
-            >
+          <div className="flex items-center gap-4 cursor-pointer" onClick={() => navigate("/")}>
+            <img className="w-12 h-12 rounded-full object-cover" src={pasaydanLogo} alt="Pasaydan Logo" />
+            <h1 className="text-2xl font-semibold hover:text-blue-200 transition-all duration-300">
               पसायदान
             </h1>
           </div>
 
-          {/* Navigation Links for desktop */}
-          <ul className="w-[50%] hidden md:flex items-center justify-center space-x-6 text-md">
+          {/* Desktop Navigation */}
+          <ul className="hidden md:flex items-center space-x-8 text-lg">
             <li
               onClick={() => navigate("/")}
-              className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#032d60] transition-all duration-300"
+              className="cursor-pointer hover:text-blue-300 transition-all duration-300"
             >
               Home
             </li>
             <li
               onClick={() => navigate("/drive")}
-              className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#032d60] transition-all duration-300"
+              className="cursor-pointer hover:text-blue-300 transition-all duration-300"
             >
               Drives
             </li>
             <li
               onClick={() => navigate("/partnerships")}
-              className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#032d60] transition-all duration-300"
+              className="cursor-pointer hover:text-blue-300 transition-all duration-300"
             >
               Partnerships
             </li>
             <li
               onClick={() => navigate("/comments")}
-              className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#032d60] transition-all duration-300"
+              className="cursor-pointer hover:text-blue-300 transition-all duration-300"
             >
               Comments
             </li>
             <li
               onClick={() => navigate("/about")}
-              className="relative group cursor-pointer text-slate-950 -tracking-tight hover:text-[#032d60] transition-all duration-300"
+              className="cursor-pointer hover:text-blue-300 transition-all duration-300"
             >
               About
             </li>
           </ul>
 
-          {/* Action Buttons for desktop */}
-          <div className="w-fit md:w-[30%] flex items-center justify-end space-x-4">
+          {/* Action Buttons */}
+          <div className="flex items-center space-x-4">
             {!isAuthenticated ? (
               <button
                 onClick={() => navigate("/auth")}
-                className="px-4 py-1 bg-[#7678ed] rounded-[4px] text-md font-semibold hover:bg-[#014487] text-white transition-all duration-300"
+                className={`px-4 py-2 font-semibold rounded-full transition-all duration-300 ${
+                  scrolled
+                    ? "bg-white text-[#032d60] hover:bg-gray-200"
+                    : "bg-[#032d60] text-white hover:bg-blue-700"
+                }`}
               >
-                Join us
+                Join Us
               </button>
             ) : (
               <>
-                {user.role === "admin" && (
-                  <button
-                    onClick={() => navigate("/admin/dashboard")}
-                    className=" text-slate-900 text-2xl rounded-[3px] transition-all duration-300"
-                  >
-                    <MdOutlinePerson4 />
-                  </button>
-                )}
-                {user.role === "user" && (
-                  <button
-                    onClick={() => navigate("/dashboard")}
-                    className=" text-slate-900 text-2xl rounded-[3px] transition-all duration-300"
-                  >
-                    <MdOutlinePerson4 />
-                  </button>
-                )}
+                <button
+                  onClick={() => navigate(user.role === "admin" ? "/admin/dashboard" : "/dashboard")}
+                  className="text-2xl hover:text-blue-300 transition-all duration-300"
+                >
+                  <MdOutlinePerson4 />
+                </button>
                 <button
                   onClick={handleLogout}
-                  className="hidden md:block text-2xl bg-slate-50 rounded-[4px] hover:text-slate-900 text-slate-900 transition-all duration-300"
+                  className="hidden md:block text-2xl hover:text-blue-300 transition-all duration-300"
                 >
                   <AiOutlineLogout />
                 </button>
@@ -115,112 +123,64 @@ function Navbar() {
             )}
           </div>
 
-          {/* Burger Icon for small screens */}
-          <div className="md:hidden w-[10%] flex justify-end items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-slate-800 focus:outline-none"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16m-7 6h7"
-                />
-              </svg>
+          {/* Mobile Hamburger Icon */}
+          <div className="md:hidden">
+            <button onClick={() => setIsOpen(!isOpen)} className="text-2xl focus:outline-none">
+              {isOpen ? <FaTimes /> : <FaBars />}
             </button>
           </div>
         </div>
       </nav>
 
-      {/* Sidebar for mobile */}
+      {/* Partial-Screen mobile menu */}
       <div
-        className={`fixed inset-y-0 left-0 w-64 bg-white shadow-md z-50 transform ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out`}
+        className={`fixed top-0 right-0 h-full w-[70%] bg-[#032d60] z-50 transform ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        } transition-transform duration-300`}
       >
-        <div className="flex justify-between items-center p-4 border-b">
-          <h1 className="text-lg font-semibold">Menu</h1>
-          <button
-            onClick={() => setIsOpen(false)}
-            className="text-gray-800 focus:outline-none"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+        <div className="flex justify-between items-center p-4">
+          <h1 className="text-xl text-white">Menu</h1>
+          <button onClick={() => setIsOpen(false)} className="text-white text-3xl focus:outline-none">
+            <FaTimes />
           </button>
         </div>
-        <ul className="p-4 space-y-4 text-sm">
-          <li
-            onClick={() => {
-              navigate("/");
-              setIsOpen(false);
-            }}
-            className="cursor-pointer text-gray-800 hover:text-violet-500 transition-all duration-300"
-          >
+        <ul className="p-4 space-y-6 text-white text-lg">
+          <li onClick={() => { navigate("/"); setIsOpen(false); }} className="cursor-pointer hover:text-blue-300 transition-all duration-300">
             Home
           </li>
-          <li
-            onClick={() => {
-              navigate("/about");
-              setIsOpen(false);
-            }}
-            className="cursor-pointer text-gray-800 hover:text-violet-500 transition-all duration-300"
-          >
+          <li onClick={() => { navigate("/about"); setIsOpen(false); }} className="cursor-pointer hover:text-blue-300 transition-all duration-300">
             About
           </li>
-          <li className="cursor-pointer text-gray-800 hover:text-violet-500 transition-all duration-300">
+          <li onClick={() => { navigate("/partnerships"); setIsOpen(false); }} className="cursor-pointer hover:text-blue-300 transition-all duration-300">
             Partnerships
           </li>
-          <li className="cursor-pointer text-gray-800 hover:text-violet-500 transition-all duration-300">
+          <li onClick={() => { navigate("/drive"); setIsOpen(false); }} className="cursor-pointer hover:text-blue-300 transition-all duration-300">
             Drives
           </li>
-          <li className="cursor-pointer text-gray-800 hover:text-violet-500 transition-all duration-300">
+          <li onClick={() => { navigate("/comments"); setIsOpen(false); }} className="cursor-pointer hover:text-blue-300 transition-all duration-300">
             Comments
           </li>
-
           {!isAuthenticated ? (
             <button
               onClick={() => {
                 navigate("/auth");
                 setIsOpen(false);
               }}
-              className="px-4 py-2 bg-[#6495ed] text-white font-semibold rounded-md hover:bg-blue-500 transition-all duration-300"
+              className="px-4 py-2 bg-white text-[#032d60] font-semibold rounded-full hover:bg-blue-700 hover:text-white transition-all duration-300"
             >
-              SignIn / SignUp
+              Sign In / Sign Up
             </button>
           ) : (
             <>
               <button
-                onClick={() => {
-                  navigate("/dashboard");
-                  setIsOpen(false);
-                }}
-                className="px-4 py-2 bg-gray-200 text-gray-800 font-semibold rounded-md hover:bg-blue-500 hover:text-white transition-all duration-300"
+                onClick={() => { navigate("/dashboard"); setIsOpen(false); }}
+                className="px-4 py-2 bg-white text-[#032d60] font-semibold rounded-full hover:bg-blue-700 hover:text-white transition-all duration-300"
               >
                 {user.name}
               </button>
               <button
                 onClick={handleLogout}
-                className="mt-4 px-4 py-2 bg-gray-200 text-gray-800 font-semibold rounded-md hover:bg-blue-500 hover:text-white transition-all duration-300"
+                className="px-4 py-2 bg-white text-[#032d60] font-semibold rounded-full hover:bg-blue-700 hover:text-white transition-all duration-300"
               >
                 Logout
               </button>
@@ -228,14 +188,6 @@ function Navbar() {
           )}
         </ul>
       </div>
-
-      {/* Overlay to close the sidebar */}
-      {isOpen && (
-        <div
-          onClick={() => setIsOpen(false)}
-          className="fixed inset-0 bg-black opacity-50 z-40"
-        ></div>
-      )}
     </>
   );
 }
