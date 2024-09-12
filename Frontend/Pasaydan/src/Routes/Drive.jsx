@@ -1,8 +1,10 @@
 import CommentCard from "../Components/CommentCard";
 import DriveCard from "../Components/DriveCard";
+import { useComment } from "../Contexts/CommentContext";
 import { useDrive } from "../Contexts/DriveContext";
 
 function Drive() {
+  const { comment } = useComment();
   const { drive } = useDrive();
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
@@ -42,8 +44,10 @@ function Drive() {
             Watch Out Some Beautifull Stories of our Contribution to the Society
           </p>
         </div>
-        <div className="w-full h-[80%] flex justify-center items-center gap-5">
-          <CommentCard />
+        <div className="w-full h-[80%] flex justify-center items-center gap-5 flex-wrap">
+          {comment.slice(0,6).map((comm, index) => (
+            <CommentCard comm={comm} key={comm.id} />
+          ))}
         </div>
       </div>
     </div>

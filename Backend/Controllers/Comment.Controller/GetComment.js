@@ -21,7 +21,7 @@ const getCommentPost = asyncHandler(async (req, res) => {
     });
   } catch (error) {
     return res.status(500).json({
-      message: "Error In GetDrivePost Handler",
+      message: "Error In GetCommentPost Handler",
       success: false,
       error: error.message,
     });
@@ -29,5 +29,5 @@ const getCommentPost = asyncHandler(async (req, res) => {
 });
 
 module.exports = {
-  getDrivePost,
+  getCommentPost,
 };

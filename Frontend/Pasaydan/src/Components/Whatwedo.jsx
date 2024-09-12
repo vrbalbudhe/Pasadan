@@ -2,9 +2,9 @@ import React from 'react';
 
 const WhatWeDo = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-blue-100 flex flex-col items-center justify-center py-16">
+    <div className="min-h-screen bg-gradient-to-b from-[#fbfcfd] via-[#f0f8fb] to-[#edf6f9] flex flex-col items-center justify-center py-16">
       {/* Title */}
-      <h1 className="text-6xl font-extrabold text-[#032d60] mb-16">
+      <h1 className="text-6xl font-semibold text-[#032d60] mb-16">
         What We Do
       </h1>
 

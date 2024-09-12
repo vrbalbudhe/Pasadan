@@ -10,10 +10,18 @@ const { getDrivePost } = require("../Controllers/Drive.Controllers/GetDrive");
 const {
   createDrivePost,
 } = require("../Controllers/Drive.Controllers/PostDrive");
+const {
+  getCommentPost,
+} = require("../Controllers/Comment.Controller/GetComment");
+const {
+  createCommentPost,
+} = require("../Controllers/Comment.Controller/PostComment");
 
 router.get("/getAllUsers", verifyToken, verifyAdmin, getAllUsers);
 router.delete("/deleteUser/:id", verifyToken, verifyAdmin, deleteUser);
 router.get("/getDrive", getDrivePost);
-router.post("/postDrive", createDrivePost);
+router.post("/postDrive", verifyToken, verifyAdmin, createDrivePost);
+router.get("/getComment", getCommentPost);
+router.post("/postComment", verifyToken, verifyAdmin, createCommentPost);
 
 module.exports = router;

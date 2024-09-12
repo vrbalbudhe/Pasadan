@@ -1,8 +1,10 @@
-function CommentCard() {
+import { CiLocationOn } from "react-icons/ci";
+
+function CommentCard({ comm }) {
   return (
-    <div className="w-[650px] h-[250px] flex bg-white shadow-lg rounded-sm overflow-hidden transform transition-transform hover:scale-105 duration-300 ease-in-out">
+    <div className="w-[650px] h-fit flex bg-white shadow-md rounded-[10px] overflow-hidden duration-300 ease-in-out">
       {/* Image Section */}
-      <div className="w-[40%] h-full relative">
+      <div className="w-[40%] relative">
         <img
           src="https://via.placeholder.com/250"
           alt="donation item"
@@ -10,20 +12,23 @@ function CommentCard() {
         />
       </div>
       {/* Text Section */}
-      <div className="w-[60%] h-full p-5 flex flex-col justify-between">
+      <div className="w-[60%] h-full p-5 flex flex-col justify-start items-start">
         <div>
-          <h2 className="text-xl font-semibold text-slate-900">
-            Donation Drive Name
-          </h2>
-          <p className="text-slate-600 text-sm">Type of Donation: Clothes</p>
+          <h2 className="text-xl font-semibold text-slate-900">{comm.title}</h2>
+          <p className="text-slate-700 text-md font-semibold">
+            {comm.subtitle}
+          </p>
+          <p className="text-slate-700 text-md pt-2 font-semibold bg-blue-100 w-fit px-2 py-1">
+            {comm.dtype}
+          </p>
         </div>
-        <p className="text-slate-700 text-sm">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
-          lectus justo. Curabitur eget auctor libero. Nulla facilisi.
+        <p className=" text-slate-700 text-sm pt-2">{comm.description}</p>
+        <p className="pt-2 w-fit text-sm text-slate-700 font-semibold text-left">
+          <span className="inline-block mr-1">
+            <CiLocationOn />
+          </span>
+          {comm.location}
         </p>
-        <button className="self-start px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-all duration-300">
-          Learn More
-        </button>
       </div>
     </div>
   );

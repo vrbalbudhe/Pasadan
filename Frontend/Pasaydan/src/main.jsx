@@ -7,6 +7,8 @@ import { AdminUserInfoProvider } from "./Contexts/AdminContext.jsx";
 import { SiteSettingContextProvider } from "./Contexts/SiteSettings.jsx";
 import { AdvertisementProvider } from "./Contexts/AdvertisementContext.jsx";
 import { DriveProvider } from "./Contexts/DriveContext.jsx";
+import CommentCard from "./Components/CommentCard.jsx";
+import { CommentProvider } from "./Contexts/CommentContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -15,7 +17,9 @@ createRoot(document.getElementById("root")).render(
         <AdminUserInfoProvider>
           <AuthProvider>
             <DriveProvider>
-              <App />
+              <CommentProvider>
+                <App />
+              </CommentProvider>
             </DriveProvider>
           </AuthProvider>
         </AdminUserInfoProvider>

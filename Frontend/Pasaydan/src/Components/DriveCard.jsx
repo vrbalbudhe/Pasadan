@@ -23,8 +23,8 @@ function DriveCard({ driv }) {
   }, [driv.timeperiod]);
 
   return (
-    <div className="w-[340px] h-fit hover:scale-105 duration-300 ease-in-out rounded-md shadow-md border-r border-l border-slate-100 shadow-zinc-300">
-      <div className="w-full h-[220px] bg-gradient-to-b rounded-t-md from-violet-400 via-violet-200 to-violet-50">
+    <div className="w-[340px] h-fit hover:scale-105 duration-300 ease-in-out rounded-[20px] shadow-md border-r border-l border-slate-100 shadow-zinc-300">
+      <div className="w-full h-[220px] bg-gradient-to-b rounded-t-[20px] from-violet-400 via-violet-200 to-violet-50">
         <p className="p-2 text-4xl text-white">{driv.title}</p>
       </div>
       <div className="w-full h-[240px] flex justify-start p-5 items-center flex-col">
