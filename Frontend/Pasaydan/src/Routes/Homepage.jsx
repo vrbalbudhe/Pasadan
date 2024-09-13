@@ -7,6 +7,8 @@ import { siteSettingsContext } from "../Contexts/SiteSettings";
 import WhatWeDo from "../Components/Whatwedo";
 import Metrics from "../Components/Metrics";
 import Certificates from "../Components/Certificates";
+import AboutUs from "../Components/AboutUs";
+import Vision from "../Components/Vision";
 
 function Homepage() {
   const { advBar } = useContext(siteSettingsContext);
@@ -15,8 +17,10 @@ function Homepage() {
       <div className="w-full h-full">{advBar ? <AdvertisementBar /> : ""}</div>
       <div className="w-full h-fit">
         <LandingPage />
+        <AboutUs/>
         <WhatWeDo />
         <Metrics />
+        <Vision/>
         <Certificates />
         <ContactUs />
       </div>
