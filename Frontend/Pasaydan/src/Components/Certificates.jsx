@@ -7,9 +7,9 @@ function Certificates() {
             Our Acheivements & Certificates
           </p>
         </div>
-        <div className="w-full h-[80%] flex gap-3 justify-center items-center flex-wrap">
-          <div className="w-[340px] h-[450px] border border-slate-200 shadow-sm shadow-slate-300">
-            <div className="w-full h-[60%] bg-slate-200">
+        <div className="w-full h-[80%] flex gap-5 justify-center items-center flex-wrap">
+          <div className="w-[340px] h-[450px] rounded-[10px] shadow-md shadow-slate-200">
+            <div className="w-full h-[60%] bg-slate-200 rounded-t-[10px]">
               <img src="" alt="certificate1" />
             </div>
             <div className="w-full h-[40%] flex justify-start items-center flex-col">
@@ -17,8 +17,8 @@ function Certificates() {
               <p className="w-full text-left p-2">paragraph</p>
             </div>
           </div>
-          <div className="w-[340px] h-[450px] border border-slate-200 shadow-sm shadow-slate-300">
-            <div className="w-full h-[60%] bg-slate-200">
+          <div className="w-[340px] h-[450px] rounded-[10px] shadow-md shadow-slate-200">
+            <div className="w-full h-[60%] bg-slate-200 rounded-t-[10px]">
               <img src="" alt="certificate1" />
             </div>
             <div className="w-full h-[40%] flex justify-start items-center flex-col">
@@ -26,8 +26,8 @@ function Certificates() {
               <p className="w-full text-left p-2">paragraph</p>
             </div>
           </div>
-          <div className="w-[340px] h-[450px] border border-slate-200 shadow-sm shadow-slate-300">
-            <div className="w-full h-[60%] bg-slate-200">
+          <div className="w-[340px] h-[450px] rounded-[10px] shadow-md shadow-slate-200">
+            <div className="w-full h-[60%] bg-slate-200 rounded-t-[10px]">
               <img src="" alt="certificate1" />
             </div>
             <div className="w-full h-[40%] flex justify-start items-center flex-col">

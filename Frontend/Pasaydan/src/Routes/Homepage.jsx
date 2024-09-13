@@ -18,8 +18,6 @@ function Homepage() {
         <WhatWeDo />
         <Metrics />
         <Certificates />
-      </div>
-      <div className="w-full h-fit">
         <ContactUs />
       </div>
     </div>

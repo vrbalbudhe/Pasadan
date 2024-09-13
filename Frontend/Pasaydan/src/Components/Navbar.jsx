@@ -44,7 +44,7 @@ function Navbar() {
     <>
       {/* Navbar */}
       <nav
-        className={`w-full sticky top-0 z-50 transition-all duration-300 ${
+        className={`w-full shadow-md sticky top-0 z-50 transition-all duration-300 ${
           scrolled
             ? "bg-[#032d60] shadow-md text-white"
             : "bg-transparent text-slate-900"
