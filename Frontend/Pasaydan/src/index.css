@@ -2,13 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    /* font-family: "Open Sans", sans-serif; */
-    /* font-family: "Lexend", sans-serif; */
-    /* font-family: "Signika Negative", sans-serif;*/
-      font-family: "Overpass", sans-serif;
+body {
+  font-family: "Overpass", sans-serif;
 }
+
 html {
-    scroll-behavior: smooth;
-  }
-  
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar for Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 14px; /* Wider scrollbar for a more prominent look */
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1); /* Transparent background for a glass-like effect */
+  backdrop-filter: blur(10px); /* Adds blur for a frosted glass effect */
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border for distinction */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2); /* Soft inner shadow */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, rgba(26, 115, 232, 0.8), rgba(11, 83, 177, 0.8)); /* Semi-transparent gradient */
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.4); /* Light border for glassy effect */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Deep shadow for depth */
+  transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animations */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, rgba(11, 83, 177, 1), rgba(26, 115, 232, 1)); /* Stronger gradient on hover */
+  transform: scale(1.15); /* Enlarges slightly on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Increases shadow for a hover effect */
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent; /* Makes the corner invisible */
+}
+
+/* Scrollbar for Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(26, 115, 232, 0.8) rgba(255, 255, 255, 0.1); /* Similar colors for Firefox */
+}
+
+/* IE-specific styles */
+body {
+  -ms-overflow-style: none; /* Disable default scrollbar style */
+}
+
+body::-ms-scrollbar {
+  display: none;
+}
