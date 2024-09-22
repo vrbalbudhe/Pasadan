@@ -47,7 +47,7 @@ function Footer() {
   }, []);
 
   return (
-    <div className="w-full bg-[#1f2421] md:h-80 h-full md:flex md:flex-col md:justify-center items-center p-2 border-r border-l border-t shadow-xl">
+    <div className="w-full bg-[#032d60] md:h-80 h-full md:flex md:flex-col md:justify-center items-center p-2 border-r border-l border-t shadow-xl">
       <div className="w-full h-[80%] md:flex justify-center items-center">
         {/* Logo and Title Section */}
         <div className="w-full md:w-[20%] h-full p-2">
@@ -202,7 +202,7 @@ function Footer() {
       {/* Footer Bottom */}
       <div className="w-full h-[20%] flex justify-center items-center p-2">
         <p className="font-semibold text-slate-200 text-md -tracking-tighter">
-          prasaydan@2024 _{" "}
+          pasaydan@2024 _{" "}
         </p>
         <p className="font-semibold text-slate-200 text-md -tracking-tighter">
           All Rights Reserved

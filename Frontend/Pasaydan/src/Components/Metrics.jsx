@@ -102,7 +102,7 @@ const Metrics = () => {
   return (
     <div
       ref={metricsRef}
-      className="md:h-[500px] h-fit flex flex-col py-2 pl-2 pr-2 mt-20 mb-20 md:mt-0 md:mb-0 md:pr-2 md:pl-2 items-center justify-center bg-[#edf6f9] text-gray-900"
+      className="md:h-[500px] h-fit flex flex-col py-2 pl-2 pr-2 mt-20 mb-20 md:mt-0 md:mb-0 md:pr-2 md:pl-2 items-center justify-center  text-gray-900"
     >
       <h1 className="text-[#032d60] text-2xl pl-5 pr-5 md:pr-0 md:pl-0 md:text-4xl font-semibold mb-20">
         THE GOAL: 1 MILLION BICYCLES BY 2025

@@ -46,22 +46,22 @@ function ContactUs() {
   };
 
   return (
-    <div className="w-full h-fit flex md:pt-20 md:pb-20 pt-0 pb-0 bg-[#dfe7fd] justify-center items-center py-2 pl-2 pr-2 md:pr-2 md:pl-2">
+    <div className="w-full h-fit flex md:pt-20 md:pb-20 pt-0 pb-0  justify-center items-center py-2 pl-2 pr-2 md:pr-2 md:pl-2">
       <div className="w-[40%] h-full flex pl-2 p-2 justify-center items-center flex-col">
-        <h1 className="p-2 w-full h-[50%] text-7xl text-[#7678ed]">
+        <h1 className="p-2 w-full h-[50%] text-7xl text-[#032d60]">
           Contact us
         </h1>
         <h1 className="p-5 w-full h-[50%] text-lg pl-2 text-slate-900">
           In case you have any query, or want any details about the type of{" "}
-          <span className="text-[#7678ed] font-semibold">Donations</span> or
+          <span className="text-[#032d60] font-semibold">Donations</span> or
           want to donate/ Participate in Our
-          <span className="text-[#7678ed] font-semibold">
+          <span className="text-[#032d60] font-semibold">
             {" "}
             Cycle Donation Drive.
           </span>
         </h1>
-        <h1 className="text-zinc-800 text-2xl font-semibold text-left w-full p-2">
-          Feel Free To Connct With Us!
+        <h1 className="text-2xl text-[#032d60] font-semibold text-left w-full p-2">
+          Feel Free To Connect With Us!
         </h1>
       </div>
       <div className="w-[40%] bg-white border-r border-l border-t-2 border-b-2 p-6 shadow-md shadow-zinc-400">
@@ -137,7 +137,7 @@ function ContactUs() {
             {" "}
             <button
               type="submit"
-              className="group relative w-full md:w-1/2 lg:w-1/3 py-2 px-4 border border-transparent text-sm font-medium rounded-sm text-white bg-[#6495ed] hover:bg-[#6495ed] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="group relative w-full md:w-1/2 lg:w-1/3 py-2 px-4 border border-transparent text-sm font-medium rounded-sm text-white bg-[#032d60] hover:bg-[#6495ed] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               Send Message
             </button>
