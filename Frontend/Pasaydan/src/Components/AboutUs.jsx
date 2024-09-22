@@ -8,7 +8,7 @@ const AboutUs = () => {
   return (
     <div
       ref={(el) => (sectionsRef.current[1] = el)}
-      className="mb-20 section"
+      className="mb-20 section w-full flex justify-center items-center flex-col"
     >
       {/* Header Section */}
       <div className="w-full flex flex-col justify-center items-center p-10"> {/* Added more padding from the top */}
@@ -26,7 +26,7 @@ const AboutUs = () => {
       </div>
 
       {/* Content Section */}
-      <div className="w-full h-60 flex flex-col justify-center items-center p-5">
+      <div className="w-[80%] h-60 flex flex-col justify-center items-center p-5">
         {/* Marathi Text */}
         <p className="text-xl text-slate-600 text-center font-semibold mt-4">
           पसायदान हा शब्द पासा (पसा) या दोन शब्दांची रचना आहे ज्याचा
