@@ -47,34 +47,34 @@ function Footer() {
   }, []);
 
   return (
-    <div className="w-full bg-[#032d60] md:h-80 h-full md:flex md:flex-col md:justify-center items-center p-2 border-r border-l border-t shadow-xl">
+    <div className="w-full bg-[#061738] md:h-80 h-full md:flex md:flex-col md:justify-center items-center md:p-2 p-0">
       <div className="w-full h-[80%] md:flex justify-center items-center">
         {/* Logo and Title Section */}
         <div className="w-full md:w-[20%] h-full p-2">
-          <div className="w-full md:h-[50%] h-full flex flex-col justify-center items-center">
+          <div className="w-full md:h-[80%] h-full flex flex-col justify-center items-center">
             <div className="w-full h-full flex justify-center items-center gap-2">
               <img
                 className="w-10 h-10 rounded-full"
                 src={pasaydanLogo}
                 alt="Pasaydan Logo"
               />
-              <p className="text-white text-2xl">Pasaydan</p>
+              <p className="text-white text-3xl">Pasaydan</p>
             </div>
-            <p className="font-semibold text-slate-300 p-1 mt-5 md:mt-0 text-md -tracking-tighter">
+            <p className="font-semibold text-slate-400 p-1 mt-5 md:mt-0 text-lg -tracking-tighter">
               जो जे वांछिल, तो ते लाहो, प्रणिजात
             </p>
             <p className=" text-slate-300 p-1 text-sm -tracking-tighter">
               ~ संत ज्ञानेश्वर महाराज ~
             </p>
           </div>
-          <div className="w-full md:h-[50%] h-full flex flex-col justify-center items-center gap-2">
+          <div className="w-full md:h-[20%] h-full flex flex-col justify-center items-center gap-2">
             <p className="text-slate-300 text-md">Founded - 10 March 2021</p>
           </div>
         </div>
 
         {/* Navigation Links */}
         <div className="w-full md:w-[10%] h-full flex justify-center items-center p-2">
-          <ul className="font-semibold text-white text-sm flex flex-col gap-1">
+          <ul className="font-normal text-white text-sm flex flex-col gap-1">
             <li
               onClick={() => navigate()}
               className="cursor-pointer hover:text-slate-500 hover:underline"
@@ -116,7 +116,7 @@ function Footer() {
 
         {/* Register, Login, etc. */}
         <div className="w-full md:w-[10%] h-full flex justify-center items-center p-2">
-          <ul className="font-semibold text-white text-sm flex flex-col gap-1">
+          <ul className="font-normal text-white text-sm flex flex-col gap-1">
             <li
               onClick={() => navigate("/auth")}
               className="cursor-pointer hover:text-slate-500 hover:underline"
@@ -151,10 +151,10 @@ function Footer() {
         </div>
 
         {/* Contact Section */}
-        <div className="w-full md:w-[15%] h-full p-2">
+        <div className="w-full md:w-[15%] h-full p-4 flex justify-center items-start">
           <div className="w-full h-1/2 flex flex-col justify-center items-center p-2">
             <div className="w-full mb-5 md:mb-0 md:h-1/2 flex md:justify-start justify-center items-center">
-              <p className="font-semibold text-lg text-white">Get In Touch</p>
+              <p className="font-normal text-lg text-white">Get In Touch</p>
             </div>
             <div className="w-full h-1/2 text-white flex md:justify-start justify-center items-center gap-2 text-2xl">
               <div className="hover:text-slate-500">
@@ -174,21 +174,21 @@ function Footer() {
         </div>
 
         {/* Advertisement Section */}
-        <div className="w-full md:w-[20%] h-full p-2">
+        <div className="w-full md:w-[20%] h-full p-2 flex flex-col justify-center items-center">
           <div className="w-full h-[20%] flex flex-col justify-center items-center p-2">
             <div className="w-full h-1/2 flex justify-center md:justify-start items-center">
-              <p className="font-bold text-lg md:text-xl text-white">
+              <p className="text-lg md:text-xl text-white">
                 What We Have Done?
               </p>
             </div>
           </div>
-          <div className="w-full h-[80%] flex flex-col justify-center items-center">
-            <div className="w-full h-1/3 p-1">
-              <p className="text-white text-sm md:text-sm pl-5 text-center md:text-left font-semibold">
+          <div className="w-full h-[70%] flex flex-col justify-center items-center">
+            <div className="w-full h-[20%] p-1">
+              <p className="text-white text-sm md:text-sm text-center md:text-left">
                 {workTitle}
               </p>
             </div>
-            <div className="w-full h-2/3 p-1">
+            <div className="w-full h-[80%] p-1">
               <img
                 className="w-full h-full object-cover"
                 src={image}
@@ -201,7 +201,7 @@ function Footer() {
 
       {/* Footer Bottom */}
       <div className="w-full h-[20%] flex justify-center items-center p-2">
-        <p className="font-semibold text-slate-200 text-md -tracking-tighter">
+        <p className="font-semibold text-slate-200 text-sm -tracking-tighter">
           pasaydan@2024 _{" "}
         </p>
         <p className="font-semibold text-slate-200 text-md -tracking-tighter">

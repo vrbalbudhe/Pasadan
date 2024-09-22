@@ -5,7 +5,8 @@
 body{
     /* font-family: "Open Sans", sans-serif; */
     /* font-family: "Lexend", sans-serif; */
-    font-family: "Signika Negative", sans-serif;
+    /* font-family: "Signika Negative", sans-serif;*/
+      font-family: "Overpass", sans-serif;
 }
 html {
     scroll-behavior: smooth;

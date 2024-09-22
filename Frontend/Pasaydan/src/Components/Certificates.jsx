@@ -1,9 +1,9 @@
 function Certificates() {
   return (
-    <div className="w-full h-fit pt-10 pb-20 flex justify-center items-center bg-[#edf6f9]">
+    <div className="w-full h-fit pt-10 pb-20 flex justify-center items-center">
       <div className="w-[80%] h-full flex flex-col justify-center items-center">
         <div className="w-full h-[20%] mb-10 flex justify-center items-center p-10">
-          <p className="text-[#032d60] text-4xl font-semibold text-center">
+          <p className="text-[#032d60] text-5xl font-extrabold tracking-tight text-center">
             Our Acheivements & Certificates
           </p>
         </div>

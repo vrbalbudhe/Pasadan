@@ -46,11 +46,11 @@ function Navbar() {
       <nav
         className={`w-full shadow-md sticky top-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-[#032d60] shadow-md text-white"
+            ? "bg-[#061738] shadow-md text-white"
             : "bg-transparent text-slate-900"
         }`}
       >
-        <div className="w-[90%] h-20 mx-auto flex justify-between items-center px-8">
+        <div className="w-[90%] h-[65px] mx-auto flex justify-between items-center px-8">
           {/* Logo and Title */}
           <div
             className="flex items-center gap-4 cursor-pointer"
@@ -61,13 +61,13 @@ function Navbar() {
               src={pasaydanLogo}
               alt="Pasaydan Logo"
             />
-            <h1 className="text-2xl font-semibold hover:text-blue-200 transition-all duration-300">
+            <h1 className="text-lg font-semibold hover:text-blue-200 transition-all duration-300">
               पसायदान
             </h1>
           </div>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center space-x-8 text-lg">
+          <ul className="hidden md:flex items-center font-semibold space-x-8 text-md">
             <li
               onClick={() => navigate("/")}
               className="cursor-pointer hover:text-blue-300 transition-all duration-300"
@@ -105,10 +105,10 @@ function Navbar() {
             {!isAuthenticated ? (
               <button
                 onClick={() => navigate("/auth")}
-                className={`px-4 py-2 font-semibold rounded-full transition-all duration-300 ${
+                className={`px-3 py-1 text-sm font-semibold flex justify-center items-center rounded-sm transition-all duration-300 ${
                   scrolled
                     ? "bg-white text-[#032d60] hover:bg-gray-200"
-                    : "bg-[#032d60] text-white hover:bg-blue-700"
+                    : "bg-[#061738] text-white hover:bg-blue-700"
                 }`}
               >
                 Join Us

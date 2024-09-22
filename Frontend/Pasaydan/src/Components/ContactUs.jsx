@@ -46,27 +46,27 @@ function ContactUs() {
   };
 
   return (
-    <div className="w-full h-fit flex md:pt-20 md:pb-20 pt-0 pb-0  justify-center items-center py-2 pl-2 pr-2 md:pr-2 md:pl-2">
-      <div className="w-[40%] h-full flex pl-2 p-2 justify-center items-center flex-col">
-        <h1 className="p-2 w-full h-[50%] text-7xl text-[#032d60]">
+    <div className="w-full h-fit bg-[#185499] flex md:pt-20 md:pb-20 pt-0 pb-0  justify-center items-center py-2 pl-2 pr-2 md:pr-2 md:pl-2">
+      <div className="w-[30%] h-full flex pl-2 p-2 justify-center items-center flex-col">
+        <h1 className="p-2 w-full h-[50%] text-7xl font-extrabold text-white">
           Contact us
         </h1>
-        <h1 className="p-5 w-full h-[50%] text-lg pl-2 text-slate-900">
+        <h1 className="p-5 w-full h-[50%] -tracking-tight text-md pl-2 text-slate-200">
           In case you have any query, or want any details about the type of{" "}
-          <span className="text-[#032d60] font-semibold">Donations</span> or
-          want to donate/ Participate in Our
-          <span className="text-[#032d60] font-semibold">
+          <span className="text-slate-900 font-bold">Donations</span> or want to
+          donate/ Participate in Our
+          <span className="text-slate-900 font-bold">
             {" "}
             Cycle Donation Drive.
           </span>
         </h1>
-        <h1 className="text-2xl text-[#032d60] font-semibold text-left w-full p-2">
+        <h1 className="text-2xl text-white font-bold text-left w-full p-2">
           Feel Free To Connect With Us!
         </h1>
       </div>
-      <div className="w-[40%] bg-white border-r border-l border-t-2 border-b-2 p-6 shadow-md shadow-zinc-400">
+      <div className="w-[50%] bg-white p-6 rounded-3xl shadow-md">
         <div className="w-full flex justify-between items-center mb-6">
-          <h2 className="w-1/2 text-xl font-bold -tracking-tight">
+          <h2 className="w-1/2 text-2xl font-bold -tracking-tight">
             Contact us
           </h2>
         </div>
