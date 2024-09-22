@@ -58,7 +58,7 @@ function About() {
             <h1 className="text-[50px] font-bold text-gray-800 tracking-wider">
               पसायदान
             </h1>
-            <h2 className="text-4xl text-white font-serif mt-2">पसा यदा न</h2>
+            <h2 className="text-4xl text-white font-serif mt-2">पसायदान</h2>
             <p className="text-xl text-white font-semibold mt-2">
               जो जे वांछिल, तो तें लाहो । प्राणिजात ॥
             </p>

@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import { CiSquareInfo } from 'react-icons/ci'; // Make sure you have react-icons installed
 import { FaQuoteLeft } from 'react-icons/fa'; // For double inverted commas
 
 const AboutUs = () => {
@@ -8,14 +7,12 @@ const AboutUs = () => {
   return (
     <div
       ref={(el) => (sectionsRef.current[1] = el)}
-      className="mb-20 section"
+      className="mb-20 section "
     >
       {/* Header Section */}
       <div className="w-full flex flex-col justify-center items-center p-10"> {/* Added more padding from the top */}
         <h2 className="text-4xl tracking-tighter text-[#032d60] font-semibold text-center">
-          <span className="mr-2 inline-block">
-            <CiSquareInfo />
-          </span>
+        
           The Meaning of Pasaydan
         </h2>
 
