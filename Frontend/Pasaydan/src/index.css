@@ -2,21 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-<<<<<<< HEAD
-body{
+body {
     /* font-family: "Open Sans", sans-serif; */
     /* font-family: "Lexend", sans-serif; */
     /* font-family: "Signika Negative", sans-serif;*/
-      /* font-family: "Overpass", sans-serif; */
-      font-family: "Inter", sans-serif;
-=======
-body {
-  font-family: "Overpass", sans-serif;
->>>>>>> d22920205e2f8c53036a774cbb039a3e92270d30
+    /* font-family: "Overpass", sans-serif; */
+    font-family: "Inter", sans-serif;
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Ensure there's a semicolon here */
 }
 
 /* Custom Scrollbar for Webkit browsers (Chrome, Safari) */

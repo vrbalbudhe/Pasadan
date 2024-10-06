@@ -7,20 +7,12 @@ export default {
       fontSize: {
         custom: "13px", // Custom text size
       },
-      colors:{
-        navFontColor:"text-slate-700"
-      }
+      colors: {
+        navFontColor: "#000000", // Correct color value for text-slate-700
+      },
     },
   },
-<<<<<<< HEAD
-  plugins: [],
-};
-=======
   plugins: [
-    require('tailwind-scrollbar'),
+    require('tailwind-scrollbar')({ nocompatible: true }), // Add configuration to enable modern features
   ],
-  variants: {
-    scrollbar: ['rounded'], // Enables the 'rounded' variant
-  },
-}
->>>>>>> d22920205e2f8c53036a774cbb039a3e92270d30
+};
