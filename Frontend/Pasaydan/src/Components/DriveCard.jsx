@@ -23,21 +23,22 @@ function DriveCard({ driv }) {
   }, [driv.timeperiod]);
 
   return (
-    <div className="w-[320px] h-fit hover:scale-105 duration-300 ease-in-out rounded-[20px] shadow-md border-r border-l border-slate-100 shadow-zinc-300">
-      <div className="w-full h-[220px] bg-gradient-to-b rounded-t-[20px] from-violet-400 via-violet-200 to-violet-50">
-        <p className="p-2 text-4xl text-white">{driv.title}</p>
-      </div>
-      <div className="w-full h-[240px] flex justify-start p-5 items-center flex-col">
+    <div className="w-[950px] h-[300px] flex duration-300 rounded-sm border-2 border-slate-200 shadow-sm shadow-zinc-300">
+      <div className="w-[35%] h-full bg-slate-100"></div>
+      <div className="w-[65%] h-full flex justify-start p-5 items-center flex-col">
+        <div className="w-full h-[20%] flex justify-start font-semibold text-slate-900 items-center">
+          <p className="p-2 text-2xl">{driv.title.slice(0, 40)}</p>
+        </div>
         <div className="w-full h-[10%] flex justify-between items-center">
-          <p className="w-fit px-2 font-semibold rounded-md text-left p-1">
+          <p className="w-[40%] px-2 font-semibold flex justify-start items-center rounded-md text-sm text-left p-1 text-slate-600">
             <span className="inline-block mr-1">
               <CiLocationOn />
             </span>
             {driv.location}
           </p>
-          <div className="w-[30%] px-3 h-full flex justify-center items-center">
+          <div className="w-[60%] px-3 h-full flex justify-center items-center">
             <p
-              className={`p-1 cursor-pointer w-fit px-3 rounded-sm py-1 text-slate-800 font-semibold 
+              className={`cursor-pointer w-fit px-3 rounded-md py-1 text-slate-800 font-semibold text-xs 
                 ${status === "Live" ? "bg-green-300" : status === "Upcoming" ? "bg-blue-300" : "bg-red-300"}
               `}
             >
@@ -45,17 +46,14 @@ function DriveCard({ driv }) {
             </p>
           </div>
         </div>
-        <p className="w-full h-[20%] flex justify-start items-center text-sm text-left p-1 pl-1">
+        <p className="w-full h-[20%] flex justify-start items-center text-sm text-left p-1 pl-3 font-semibold">
           {driv.dtype}
         </p>
-        <p className="w-full h-[60%] text-left text-slate-700 p-1">
-          <span className="inline-block mr-1">
-            <LuBadgeInfo />
-          </span>
-          {driv.description.slice(0, 150)}...
+        <p className="w-full h-[40%] text-left font-semibold text-sm text-slate-600 p-1">
+          {driv.description.slice(0, 550)}...
         </p>
-        <p className="w-full h-[10%] text-center text-md text-slate-500 p-1">
-          <span className=" inline-block mr-1 text-slate-900  text-md">
+        <p className="w-full h-[10%] font-semibold flex justify-start items-center text-xs text-slate-500 p-1">
+          <span className=" inline-block mr-1 text-slate-900  text-sm">
             <IoTimerOutline />
           </span>
           {driv.timeperiod}

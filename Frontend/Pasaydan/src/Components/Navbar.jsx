@@ -44,71 +44,72 @@ function Navbar() {
     <>
       {/* Navbar */}
       <nav
-        className={`w-full shadow-md sticky top-0 z-50 transition-all duration-300 ${
+        className={`w-full border-b border-slate-300 sticky top-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-[#061738] shadow-md text-white"
-            : "bg-transparent text-slate-900"
+            ? " shadow-md bg-white"
+            : "bg-white text-custom"
         }`}
       >
-        <div className="w-[90%] h-[65px] mx-auto flex justify-between items-center px-8">
+        <div className="w-[100%] h-[48px] mx-auto flex justify-between items-center px-8">
           {/* Logo and Title */}
           <div
-            className="flex items-center gap-4 cursor-pointer"
-            onClick={() => navigate("/")}
-          >
+            className="flex w-[80%] items-center gap-2 justify-start cursor-pointer"
+            >
             <img
-              className="w-12 h-12 rounded-full object-cover"
+            onClick={() => navigate("/")}
+              className="w-8 h-8 rounded-full object-cover"
               src={pasaydanLogo}
               alt="Pasaydan Logo"
             />
-            <h1 className="text-lg font-semibold hover:text-blue-200 transition-all duration-300">
+            <h1 className="text-sm font-semibold hover:text-blue-200 transition-all duration-300">
               पसायदान
             </h1>
+
+            <ul className="ml-5 hidden w-[50%] md:flex items-center gap-5 text-custom text-navFontColor font-semibold">
+              <li
+                onClick={() => navigate("/")}
+                className="cursor-pointer -tracking-tighter hover:text-blue-300 transition-all duration-300"
+              >
+                Home
+              </li>
+              <li
+                onClick={() => navigate("/drive")}
+                className="cursor-pointer hover:text-blue-300 transition-all duration-300"
+              >
+                Drives
+              </li>
+              <li
+                onClick={() => navigate("/partnerships")}
+                className="cursor-pointer hover:text-blue-300 transition-all duration-300"
+              >
+                Partnerships
+              </li>
+              <li
+                onClick={() => navigate("/comments")}
+                className="cursor-pointer hover:text-blue-300 transition-all duration-300"
+              >
+                Comments
+              </li>
+              <li
+                onClick={() => navigate("/about")}
+                className="cursor-pointer hover:text-blue-300 transition-all duration-300"
+              >
+                About
+              </li>
+            </ul>
           </div>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center font-semibold space-x-8 text-md">
-            <li
-              onClick={() => navigate("/")}
-              className="cursor-pointer hover:text-blue-300 transition-all duration-300"
-            >
-              Home
-            </li>
-            <li
-              onClick={() => navigate("/drive")}
-              className="cursor-pointer hover:text-blue-300 transition-all duration-300"
-            >
-              Drives
-            </li>
-            <li
-              onClick={() => navigate("/partnerships")}
-              className="cursor-pointer hover:text-blue-300 transition-all duration-300"
-            >
-              Partnerships
-            </li>
-            <li
-              onClick={() => navigate("/comments")}
-              className="cursor-pointer hover:text-blue-300 transition-all duration-300"
-            >
-              Comments
-            </li>
-            <li
-              onClick={() => navigate("/about")}
-              className="cursor-pointer hover:text-blue-300 transition-all duration-300"
-            >
-              About
-            </li>
-          </ul>
 
           {/* Action Buttons */}
-          <div className="flex items-center space-x-4">
+          <div className="w-[20%] h-fit justify-end flex items-center space-x-4">
             {!isAuthenticated ? (
               <button
                 onClick={() => navigate("/auth")}
-                className={`px-3 py-1 text-sm font-semibold flex justify-center items-center rounded-sm transition-all duration-300 ${
+                className={`px-3 py-1 text-custom border border-slate-800 font-semibold flex justify-center items-center rounded-md transition-all duration-300 ${
                   scrolled
                     ? "bg-white text-[#032d60] hover:bg-gray-200"
-                    : "bg-[#061738] text-white hover:bg-blue-700"
+                    : "text-navFontColor"
                 }`}
               >
                 Join Us

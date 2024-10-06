@@ -50,17 +50,17 @@ function Footer() {
     <div className="w-full bg-[#061738] md:h-80 h-full md:flex md:flex-col md:justify-center items-center md:p-2 p-0">
       <div className="w-full h-[80%] md:flex justify-center items-center">
         {/* Logo and Title Section */}
-        <div className="w-full md:w-[20%] h-full p-2">
-          <div className="w-full md:h-[80%] h-full flex flex-col justify-center items-center">
+        <div className="w-full md:w-[30%] flex flex-col justify-center items-end h-full p-2">
+          <div className="w-full md:h-[60%] h-full flex flex-col justify-center items-center">
             <div className="w-full h-full flex justify-center items-center gap-2">
               <img
-                className="w-10 h-10 rounded-full"
+                className="w-8 h-8 rounded-full"
                 src={pasaydanLogo}
                 alt="Pasaydan Logo"
               />
-              <p className="text-white text-3xl">Pasaydan</p>
+              <p className="text-white text-xl">Pasaydan</p>
             </div>
-            <p className="font-semibold text-slate-400 p-1 mt-5 md:mt-0 text-lg -tracking-tighter">
+            <p className="text-slate-400 p-1 mt-5 md:mt-0 text-md -tracking-tighter">
               जो जे वांछिल, तो ते लाहो, प्रणिजात
             </p>
             <p className=" text-slate-300 p-1 text-sm -tracking-tighter">
@@ -68,7 +68,7 @@ function Footer() {
             </p>
           </div>
           <div className="w-full md:h-[20%] h-full flex flex-col justify-center items-center gap-2">
-            <p className="text-slate-300 text-md">Founded - 10 March 2021</p>
+            <p className="text-slate-300 text-sm">Founded - 10 March 2021</p>
           </div>
         </div>
 
@@ -151,7 +151,7 @@ function Footer() {
         </div>
 
         {/* Contact Section */}
-        <div className="w-full md:w-[15%] h-full p-4 flex justify-center items-start">
+        <div className="w-full md:w-[20%] h-full p-4 flex justify-center items-start">
           <div className="w-full h-1/2 flex flex-col justify-center items-center p-2">
             <div className="w-full mb-5 md:mb-0 md:h-1/2 flex md:justify-start justify-center items-center">
               <p className="font-normal text-lg text-white">Get In Touch</p>
@@ -172,39 +172,14 @@ function Footer() {
             </div>
           </div>
         </div>
-
-        {/* Advertisement Section */}
-        <div className="w-full md:w-[20%] h-full p-2 flex flex-col justify-center items-center">
-          <div className="w-full h-[20%] flex flex-col justify-center items-center p-2">
-            <div className="w-full h-1/2 flex justify-center md:justify-start items-center">
-              <p className="text-lg md:text-xl text-white">
-                What We Have Done?
-              </p>
-            </div>
-          </div>
-          <div className="w-full h-[70%] flex flex-col justify-center items-center">
-            <div className="w-full h-[20%] p-1">
-              <p className="text-white text-sm md:text-sm text-center md:text-left">
-                {workTitle}
-              </p>
-            </div>
-            <div className="w-full h-[80%] p-1">
-              <img
-                className="w-full h-full object-cover"
-                src={image}
-                alt="Advertisement"
-              />
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Footer Bottom */}
-      <div className="w-full h-[20%] flex justify-center items-center p-2">
-        <p className="font-semibold text-slate-200 text-sm -tracking-tighter">
+      <div className="w-full h-[10%] flex justify-center items-center p-2">
+        <p className="text-slate-200 text-xs -tracking-tighter">
           pasaydan@2024 _{" "}
         </p>
-        <p className="font-semibold text-slate-200 text-md -tracking-tighter">
+        <p className=" text-slate-200 text-xs -tracking-tighter">
           All Rights Reserved
         </p>
       </div>
