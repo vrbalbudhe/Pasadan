@@ -7,11 +7,17 @@ import { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import axios from "axios";
 
-function Navbar() {
+function Navbar({ sendRequest }) {
   const { user, isAuthenticated } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [loginClick, setLoginClick] = useState(false);
   const navigate = useNavigate();
+
+  const handleOperation = async() => {
+    await setLoginClick((prev) => !prev);
+    await sendRequest(loginClick);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +35,7 @@ function Navbar() {
         {},
         { withCredentials: true }
       );
-      navigate("/auth");
+      navigate("/");
       window.location.reload();
     } catch (error) {
       console.log(error);
@@ -44,19 +50,15 @@ function Navbar() {
     <>
       {/* Navbar */}
       <nav
-        className={`w-full border-b border-slate-300 sticky top-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? " shadow-md bg-white"
-            : "bg-white text-custom"
+        className={`w-full sticky top-0 z-50 transition-all duration-300 ${
+          scrolled ? " shadow-md bg-white" : "bg-white text-custom"
         }`}
       >
-        <div className="w-[100%] h-[48px] mx-auto flex justify-between items-center px-8">
+        <div className="w-[100%] h-[52px] mx-auto flex justify-between items-center px-8">
           {/* Logo and Title */}
-          <div
-            className="flex w-[80%] items-center gap-2 justify-start cursor-pointer"
-            >
+          <div className="flex w-[80%] items-center gap-2 justify-start cursor-pointer">
             <img
-            onClick={() => navigate("/")}
+              onClick={() => navigate("/")}
               className="w-8 h-8 rounded-full object-cover"
               src={pasaydanLogo}
               alt="Pasaydan Logo"
@@ -65,7 +67,7 @@ function Navbar() {
               पसायदान
             </h1>
 
-            <ul className="ml-5 hidden w-[50%] md:flex items-center gap-5 text-custom text-navFontColor font-semibold">
+            <ul className="md:ml-10 hidden w-[50%] md:flex items-center gap-3 text-custom text-navFontColor font-semibold">
               <li
                 onClick={() => navigate("/")}
                 className="cursor-pointer -tracking-tighter hover:text-blue-300 transition-all duration-300"
@@ -84,18 +86,6 @@ function Navbar() {
               >
                 Partnerships
               </li>
-              <li
-                onClick={() => navigate("/comments")}
-                className="cursor-pointer hover:text-blue-300 transition-all duration-300"
-              >
-                Comments
-              </li>
-              <li
-                onClick={() => navigate("/about")}
-                className="cursor-pointer hover:text-blue-300 transition-all duration-300"
-              >
-                About
-              </li>
             </ul>
           </div>
 
@@ -105,11 +95,11 @@ function Navbar() {
           <div className="w-[20%] h-fit justify-end flex items-center space-x-4">
             {!isAuthenticated ? (
               <button
-                onClick={() => navigate("/auth")}
-                className={`px-3 py-1 text-custom border border-slate-800 font-semibold flex justify-center items-center rounded-md transition-all duration-300 ${
+                onClick={handleOperation}
+                className={`px-3 py-1 text-custom border-2 border-slate-300 font-semibold flex justify-center items-center rounded-md transition-all duration-300 ${
                   scrolled
-                    ? "bg-white text-[#032d60] hover:bg-gray-200"
-                    : "text-navFontColor"
+                    ? "bg-white hover:bg-[#032d60] hover:text-white hover:border-[#032d60]"
+                    : "text-navFontColor hover:bg-[#032d60] hover:text-white hover:border-[#032d60]"
                 }`}
               >
                 Join Us
@@ -175,15 +165,6 @@ function Navbar() {
           </li>
           <li
             onClick={() => {
-              navigate("/about");
-              setIsOpen(false);
-            }}
-            className="cursor-pointer hover:text-blue-300 transition-all duration-300"
-          >
-            About
-          </li>
-          <li
-            onClick={() => {
               navigate("/partnerships");
               setIsOpen(false);
             }}
@@ -199,15 +180,6 @@ function Navbar() {
             className="cursor-pointer hover:text-blue-300 transition-all duration-300"
           >
             Drives
-          </li>
-          <li
-            onClick={() => {
-              navigate("/comments");
-              setIsOpen(false);
-            }}
-            className="cursor-pointer hover:text-blue-300 transition-all duration-300"
-          >
-            Comments
           </li>
           {!isAuthenticated ? (
             <button

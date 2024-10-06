@@ -6,7 +6,7 @@ import React, { useState, useEffect } from "react";
 import { FaEye, FaEyeSlash, FaCheckCircle } from "react-icons/fa"; // Import icons for eye and checkmark
 import { useAuth } from "../Contexts/AuthContext";
 
-const LoginSignupPage = () => {
+const LoginSignupPage = ({ closeLogin }) => {
   const [isLogin, setIsLogin] = useState(true);
   const [password, setPassword] = useState("");
   const { user, isAuthenticated, setIsAuthenticated, setUser } = useAuth();
@@ -25,7 +25,6 @@ const LoginSignupPage = () => {
   const [email, setEmail] = useState(""); // Store email input
   const navigate = useNavigate();
 
-  // Timer for the "Resend OTP" button
   useEffect(() => {
     let timer;
     if (otpSent && resendTimeout > 0) {
@@ -61,6 +60,7 @@ const LoginSignupPage = () => {
           console.log("admin");
           navigate(`/admin/dashboard`);
         } else {
+          handleSubmit();
           navigate(`/`);
         }
       }
@@ -207,9 +207,21 @@ const LoginSignupPage = () => {
     setShowConfirmPassword(!showConfirmPassword); // Toggle confirm password visibility
   };
 
+  const handleSubmit = () => {
+    closeLogin();
+  };
+
   return (
-    <div className="min-h-[100vh] overflow-y-hidden md:min-h-screen flex items-center py-2 pl-2 pr-2 md:pr-2 md:pl-2 justify-center">
-      <div className="bg-white shadow-lg rounded-lg md:flex overflow-hidden max-w-4xl w-full relative">
+    <div className=" fixed inset-0 backdrop-blur-sm z-50 min-h-[100vh] bg-transparent  overflow-y-hidden md:min-h-[200px] flex items-center py-2 pl-2 pr-2 md:pr-2 md:pl-2 justify-center w-full">
+      <div className="fixed right-0 top-0 p-10">
+        <p
+          onClick={handleSubmit}
+          className="text-white text-xl bg-black px-3 py-1 cursor-pointer hover:scale-90 duration-300 rounded-full"
+        >
+          X
+        </p>
+      </div>
+      <div className=" shadow-lg rounded-sm md:flex overflow-hidden max-w-4xl w-full relative bg-transparent">
         {/* Image Section for Login */}
         <div
           className={`w-full md:w-1/2 bg-cover transition-all duration-700 ease-in-out ${isLogin ? "translate-x-0" : "-translate-x-full"}`}
@@ -225,30 +237,34 @@ const LoginSignupPage = () => {
 
         {/* Form Section */}
         <div
-          className={`w-full md:w-1/2  p-8 transition-all duration-700 ease-in-out ${isLogin ? "" : "-translate-x-full"}`}
+          className={`w-full bg-white md:w-1/2  p-8 transition-all duration-700 ease-in-out ${isLogin ? "" : "-translate-x-full"}`}
         >
           {isLogin ? (
             <>
-              <h2 className="text-2xl font-bold text-left md:text-center mb-6">
+              <h2 className="text-xl font-bold text-left md:text-left mb-6">
                 Login
               </h2>
               <form onSubmit={handleLogin}>
                 <div className="mb-4">
-                  <label className="block text-gray-700">Email</label>
+                  <label className="block text-gray-700 text-sm font-semibold">
+                    Email
+                  </label>
                   <input
                     name="email"
                     type="email"
-                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Enter your email"
                     required
                   />
                 </div>
                 <div className="mb-4 relative">
-                  <label className="block text-gray-700">Password</label>
+                  <label className="block text-gray-700 text-sm font-semibold">
+                    Password
+                  </label>
                   <input
                     name="password"
                     type={showPassword ? "text" : "password"} // Toggle between text and password
-                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Enter your password"
                     required
                   />
@@ -260,10 +276,10 @@ const LoginSignupPage = () => {
                   </span>
                 </div>
                 <div className="mb-4 flex justify-between">
-                  <label>
+                  <label className="text-sm">
                     <input type="checkbox" className="mr-2" /> Remember me
                   </label>
-                  <a href="#" className="text-blue-500">
+                  <a href="#" className="text-blue-500 text-sm">
                     Forgot password?
                   </a>
                 </div>
@@ -272,12 +288,12 @@ const LoginSignupPage = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition-all duration-200"
+                  className="w-full bg-black text-white py-2 rounded-sm hover:bg-gray-800 transition-all duration-200"
                 >
                   Log In
                 </button>
               </form>
-              <p className="text-center mt-4 text-gray-500">
+              <p className="text-center mt-4 text-sm text-gray-500">
                 Don't have an account?
                 <button
                   onClick={toggleForm}
@@ -289,14 +305,16 @@ const LoginSignupPage = () => {
             </>
           ) : (
             <>
-              <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
+              <h2 className="text-xl font-bold text-left mb-6">Sign Up</h2>
               <form onSubmit={handleRegistration}>
                 <div className="mb-4">
-                  <label className="block text-gray-700">Full Name</label>
+                  <label className="block text-gray-700 text-sm font-semibold">
+                    Full Name
+                  </label>
                   <input
                     type="text"
                     name="name"
-                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                     placeholder="Enter your full name"
                     required
                   />
@@ -304,13 +322,15 @@ const LoginSignupPage = () => {
 
                 <div className="mb-4 flex">
                   <div className="flex-grow mr-2">
-                    <label className="block text-gray-700">Email</label>
+                    <label className="block text-gray-700 text-sm font-semibold">
+                      Email
+                    </label>
                     <input
                       type="email"
                       name="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                       placeholder="Enter your email"
                       required
                       disabled={emailVerified} // Lock the email field after verification
@@ -322,7 +342,7 @@ const LoginSignupPage = () => {
                     <button
                       type="button"
                       onClick={handleEmailVerification}
-                      className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-200 mt-7"
+                      className="bg-blue-500 text-white py-2 px-4 rounded-sm text-sm hover:bg-blue-600 transition-all duration-200 mt-5"
                       disabled={otpSent}
                     >
                       Verify Email
@@ -334,13 +354,15 @@ const LoginSignupPage = () => {
                   <>
                     <div className="mb-4 flex">
                       <div className="flex-grow mr-2">
-                        <label className="block text-gray-700">OTP</label>
+                        <label className="block text-gray-700 text-sm font-semibold">
+                          OTP
+                        </label>
                         <input
                           type="number"
                           name="otp"
                           value={otp}
                           onChange={(e) => setOtp(e.target.value)}
-                          className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                          className="w-full px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                           placeholder="Enter OTP"
                           disabled={emailVerified}
                         />
@@ -379,13 +401,15 @@ const LoginSignupPage = () => {
                 )}
 
                 <div className="mb-4 relative">
-                  <label className="block text-gray-700">Password</label>
+                  <label className="block text-gray-700 text-sm font-semibold">
+                    Password
+                  </label>
                   <input
                     type={showPassword ? "text" : "password"} // Toggle between text and password
                     name="password"
                     value={password}
                     onChange={handlePasswordChange}
-                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                     placeholder="Enter your password"
                     required
                   />
@@ -414,7 +438,7 @@ const LoginSignupPage = () => {
                 </div>
 
                 <div className="mb-4 relative">
-                  <label className="block text-gray-700">
+                  <label className="block text-gray-700 text-sm font-semibold">
                     Confirm Password
                   </label>
                   <input
@@ -422,7 +446,7 @@ const LoginSignupPage = () => {
                     name="confirmPassword"
                     value={confirmPassword}
                     onChange={handleConfirmPasswordChange}
-                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                     placeholder="Confirm your password"
                     required
                   />
@@ -447,7 +471,7 @@ const LoginSignupPage = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-black text-white py-2 rounded-lg hover:bg-green-600 transition-all duration-200"
+                  className="w-full bg-black text-white py-2 rounded-sm hover:bg-green-600 transition-all duration-200"
                 >
                   Sign Up
                 </button>
@@ -462,7 +486,7 @@ const LoginSignupPage = () => {
                 </div>
               )}
 
-              <p className="text-center mt-4 text-gray-500">
+              <p className="text-center mt-4 text-sm text-gray-500">
                 Already have an account?
                 <button
                   onClick={toggleForm}

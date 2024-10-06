@@ -5,8 +5,6 @@ import Homepage from "./Routes/Homepage";
 import LoginSignupPage from "./Routes/LoginSignupPage";
 import Dashboard from "./Routes/Dashboard";
 import AdminDashboard from "./Admin/AdminDash";
-import About from "./Routes/About";
-import Comments from "./Routes/Comments";
 import Drive from "./Routes/Drive";
 import Partnerships from "./Routes/Partnerships";
 
@@ -22,14 +20,6 @@ function App() {
         {
           path: "/",
           element: <Homepage advOn={advOn} uploadedImages={uploadedImages} />,
-        },
-        {
-          path: "about",
-          element: <About />,
-        },
-        {
-          path: "comments",
-          element: <Comments />,
         },
         {
           path: "drive",
@@ -66,10 +56,6 @@ function App() {
           element: <Dashboard />,
         },
       ],
-    },
-    {
-      path: "/auth",
-      element: <LoginSignupPage />,
     },
   ]);
 

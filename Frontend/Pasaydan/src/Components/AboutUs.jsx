@@ -7,13 +7,13 @@ const AboutUs = () => {
   return (
     <div
       ref={(el) => (sectionsRef.current[1] = el)}
-      className="mb-20 section w-full flex justify-center items-center flex-col"
+      className="pb-10 section w-full flex justify-center items-center flex-col"
     >
       {/* Header Section */}
       <div className="w-full flex flex-col justify-center items-center p-10">
         {" "}
         {/* Added more padding from the top */}
-        <h2 className="text-4xl tracking-tighter text-[#032d60] font-semibold text-center">
+        <h2 className="text-5xl tracking-tight text-[#032d60] font-semibold text-center">
           The Meaning of Pasaydan
         </h2>
         {/* Double Inverted Commas Icon */}
@@ -24,9 +24,9 @@ const AboutUs = () => {
       </div>
 
       {/* Content Section */}
-      <div className="w-[80%] h-60 flex flex-col justify-center items-center p-5">
+      <div className="w-[70%] h-60 flex flex-col justify-center items-center p-5">
         {/* Marathi Text */}
-        <p className="text-xl text-slate-600 text-center font-semibold mt-4">
+        <p className="text- w-[80%]-tracking-tighter text-slate-600 text-center font-semibold mt-4">
           पसायदान हा शब्द पासा (पसा) या दोन शब्दांची रचना आहे ज्याचा अर्थ हाताचे
           तळवे एकमेकांना जोडलेले आहेत (जसे आपण कोणीतरी आपल्या हातात भरपूर चॉकलेट
           देणार असेल तेव्हा बनवतो ) आणि दान (दान) म्हणजे भेट. एकत्रितपणे त्यांचा
@@ -36,7 +36,7 @@ const AboutUs = () => {
         </p>
 
         {/* English Translation */}
-        <p className="text-xl text-center text-slate-600 font-semibold mt-10">
+        <p className="w-[80%] text-md text-center text-slate-800 font-semibold mt-10">
           Here's a refined version of your text in a more structured format with
           proper spacing for readability: The word Pasaydan is a composition of
           two words: Pasa (पसा), which means palms spread joined together (like
