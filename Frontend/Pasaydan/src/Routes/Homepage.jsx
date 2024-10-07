@@ -24,7 +24,7 @@ function Homepage() {
         <Metrics />
         <Vision />
         <Committee />
-        <Certificates />
+        {/* <Certificates /> */}
         <ContactUs />
       </div>
     </div>

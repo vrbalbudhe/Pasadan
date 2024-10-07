@@ -7,18 +7,18 @@ const AboutUs = () => {
   return (
     <div
       ref={(el) => (sectionsRef.current[1] = el)}
-      className="pb-10 section w-full flex justify-center items-center flex-col"
+      className="pb-10 section w-full flex justify-center items-center flex-col pt-10"
     >
       {/* Header Section */}
       <div className="w-full flex flex-col justify-center items-center p-10">
         {" "}
         {/* Added more padding from the top */}
-        <h2 className="text-5xl tracking-tight text-[#032d60] font-semibold text-center">
+        <h2 className="text-6xl tracking-tight text-slate-900 font-semibold text-center">
           The Meaning of Pasaydan
         </h2>
         {/* Double Inverted Commas Icon */}
         <div className="mt-4">
-          <FaQuoteLeft className="text-[#032d60] text-3xl" />{" "}
+          <FaQuoteLeft className="text-black text-3xl" />{" "}
           {/* Adjust icon size and color */}
         </div>
       </div>

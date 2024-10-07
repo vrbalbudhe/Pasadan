@@ -98,8 +98,8 @@ function Navbar({ sendRequest }) {
                 onClick={handleOperation}
                 className={`px-3 py-1 text-custom border-2 border-slate-300 font-semibold flex justify-center items-center rounded-md transition-all duration-300 ${
                   scrolled
-                    ? "bg-white hover:bg-[#032d60] hover:text-white hover:border-[#032d60]"
-                    : "text-navFontColor hover:bg-[#032d60] hover:text-white hover:border-[#032d60]"
+                    ? "bg-white hover:bg-siteBlue hover:text-white hover:border-siteBlue"
+                    : "text-navFontColor hover:bg-siteBlue hover:text-white hover:border-siteBlue"
                 }`}
               >
                 Join Us
@@ -159,7 +159,7 @@ function Navbar({ sendRequest }) {
               navigate("/");
               setIsOpen(false);
             }}
-            className="cursor-pointer hover:text-blue-300 transition-all duration-300"
+            className="cursor-pointer hover:text-siteBlue transition-all duration-300"
           >
             Home
           </li>
@@ -168,7 +168,7 @@ function Navbar({ sendRequest }) {
               navigate("/partnerships");
               setIsOpen(false);
             }}
-            className="cursor-pointer hover:text-blue-300 transition-all duration-300"
+            className="cursor-pointer hover:text-siteBlue transition-all duration-300"
           >
             Partnerships
           </li>
@@ -177,7 +177,7 @@ function Navbar({ sendRequest }) {
               navigate("/drive");
               setIsOpen(false);
             }}
-            className="cursor-pointer hover:text-blue-300 transition-all duration-300"
+            className="cursor-pointer hover:text-siteBlue transition-all duration-300"
           >
             Drives
           </li>

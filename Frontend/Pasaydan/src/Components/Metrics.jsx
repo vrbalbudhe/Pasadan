@@ -104,7 +104,7 @@ const Metrics = () => {
       ref={metricsRef}
       className="md:h-[500px] h-fit flex flex-col py-2 pl-2 pr-2 mt-20 mb-20 md:mt-0 md:mb-0 md:pr-2 md:pl-2 items-center justify-center  text-gray-900"
     >
-      <h1 className="text-[#032d60] text-2xl pl-5 pr-5 md:pr-0 md:pl-0 md:text-4xl font-semibold mb-20">
+      <h1 className="text-slate-900 text-2xl pl-5 pr-5 md:pr-0 md:pl-0 md:text-4xl font-bold mb-20">
         THE GOAL: 1 MILLION BICYCLES BY 2025
       </h1>
 
@@ -112,7 +112,7 @@ const Metrics = () => {
         {/* Award Won */}
         <div className="flex flex-col items-center">
           {/* <FaTrophy className="text-yellow-500 text-4xl md:text-6xl mb-4" /> */}
-          <GiDiamondTrophy className="text-slate-800 text-4xl md:text-6xl mb-4" />
+          <GiDiamondTrophy className="text-slate-800 text-4xl md:text-7xl mb-4" />
           <h2 className="text-2xl md:text-2xl font-bold">
             {Math.floor(metrics.awards)}+
           </h2>
@@ -121,7 +121,7 @@ const Metrics = () => {
 
         {/* Bicycles Delivered */}
         <div className="flex flex-col items-center">
-          <IoMdBicycle className="text-slate-800 text-4xl md:text-6xl mb-4" />
+          <IoMdBicycle className="text-slate-800 text-4xl md:text-7xl mb-4" />
           <h2 className="text-2xl md:text-2xl font-bold">
             {Math.floor(metrics.bicycles)}+
           </h2>
@@ -130,7 +130,7 @@ const Metrics = () => {
 
         {/* Global Support */}
         <div className="flex flex-col items-center">
-          <FaGlobeAfrica className="text-slate-800 text-4xl md:text-6xl mb-4" />
+          <FaGlobeAfrica className="text-slate-800 text-4xl md:text-7xl mb-4" />
           <h2 className="text-2xl md:text-2xl font-bold">
             {Math.floor(metrics.globalSupport)}+
           </h2>
@@ -139,7 +139,7 @@ const Metrics = () => {
 
         {/* Comments */}
         <div className="flex flex-col items-center">
-          <LuMessagesSquare className="text-slate-800 text-4xl md:text-6xl mb-4" />
+          <LuMessagesSquare className="text-slate-800 text-4xl md:text-7xl mb-4" />
           <h2 className="text-2xl md:text-2xl font-bold">
             {Math.floor(metrics.comments)}+
           </h2>

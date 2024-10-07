@@ -46,25 +46,25 @@ function ContactUs() {
   };
 
   return (
-    <div className="w-full h-fit bg-[#185499] flex md:pt-20 md:pb-20 pt-0 pb-0  justify-center items-center py-2 pl-2 pr-2 md:pr-2 md:pl-2">
+    <div className="w-full h-fit flex md:pt-20 md:pb-20 pt-0 pb-0  justify-center items-center py-2 pl-2 pr-2 md:pr-2 md:pl-2">
       <div className="w-[30%] h-full flex pl-2 p-2 justify-center items-center flex-col">
-        <h1 className="p-2 w-full h-[50%] text-7xl font-extrabold text-white">
+        <h1 className="p-2 w-full h-[50%] text-7xl font-extrabold text-siteBlue">
           Contact us
         </h1>
-        <h1 className="p-5 w-full h-[50%] -tracking-tight text-md pl-2 text-slate-200">
+        <h1 className="p-5 w-full h-[50%] -tracking-tight text-md pl-2 text-slate-800 font-semibold">
           In case you have any query, or want any details about the type of{" "}
-          <span className="text-slate-900 font-bold">Donations</span> or want to
-          donate/ Participate in Our
-          <span className="text-slate-900 font-bold">
+          <span className="text-siteBlue font-extrabold">Donations</span> or
+          want to donate/ Participate in Our
+          <span className="text-siteBlue font-extrabold">
             {" "}
             Cycle Donation Drive.
           </span>
         </h1>
-        <h1 className="text-2xl text-white font-bold text-left w-full p-2">
+        <h1 className="text-2xl text-slate-800 font-bold text-left w-full p-2">
           Feel Free To Connect With Us!
         </h1>
       </div>
-      <div className="w-[50%] bg-white p-6 rounded-3xl shadow-md">
+      <div className="w-[50%] bg-white p-6 rounded-3xl shadow-md border-t border-r border-l">
         <div className="w-full flex justify-between items-center mb-6">
           <h2 className="w-1/2 text-2xl font-bold -tracking-tight">
             Contact us
@@ -137,7 +137,7 @@ function ContactUs() {
             {" "}
             <button
               type="submit"
-              className="group relative w-full md:w-1/2 lg:w-1/3 py-2 px-4 border border-transparent text-sm font-medium rounded-sm text-white bg-[#032d60] hover:bg-[#6495ed] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="group relative w-full md:w-1/2 lg:w-1/3 py-2 px-4 border border-transparent text-sm font-medium rounded-sm text-white bg-siteBlue hover:bg-[#6495ed] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               Send Message
             </button>

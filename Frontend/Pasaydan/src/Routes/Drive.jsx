@@ -100,7 +100,7 @@ function Drive() {
             <p className="text-slate-800 text-6xl p-2 font-semibold">
               Our Pasaydan to Society
             </p>
-            <p className="text-indigo-400 text-md font-bold pl-2">
+            <p className="text-siteBlue text-md font-bold pl-2">
               Watch Out Some Beautiful Stories of Our Contribution to Society
             </p>
           </div>

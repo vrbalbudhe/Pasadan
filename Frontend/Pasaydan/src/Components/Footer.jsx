@@ -47,7 +47,7 @@ function Footer() {
   }, []);
 
   return (
-    <div className="w-full bg-[#061738] md:h-80 h-full md:flex md:flex-col md:justify-center items-center md:p-2 p-0">
+    <div className="w-full bg-siteBlue md:h-80 h-full md:flex md:flex-col md:justify-center items-center md:p-2 p-0">
       <div className="w-full h-[80%] md:flex justify-center items-center">
         {/* Logo and Title Section */}
         <div className="w-full md:w-[30%] flex flex-col justify-center items-end h-full p-2">
@@ -58,17 +58,17 @@ function Footer() {
                 src={pasaydanLogo}
                 alt="Pasaydan Logo"
               />
-              <p className="text-white text-xl">Pasaydan</p>
+              <p className="text-white font-semibold text-xl">Pasaydan</p>
             </div>
-            <p className="text-slate-400 p-1 mt-5 md:mt-0 text-md -tracking-tighter">
+            <p className="text-slate-200 font-semibold p-1 mt-5 md:mt-0 text-md -tracking-tighter">
               जो जे वांछिल, तो ते लाहो, प्रणिजात
             </p>
-            <p className=" text-slate-300 p-1 text-sm -tracking-tighter">
+            <p className=" text-slate-300 font-semibold p-1 text-sm -tracking-tighter">
               ~ संत ज्ञानेश्वर महाराज ~
             </p>
           </div>
           <div className="w-full md:h-[20%] h-full flex flex-col justify-center items-center gap-2">
-            <p className="text-slate-300 text-sm">Founded - 10 March 2021</p>
+            <p className="text-slate-300 font-semibold text-sm">Founded - 10 March 2021</p>
           </div>
         </div>
 
@@ -77,37 +77,37 @@ function Footer() {
           <ul className="font-normal text-white text-sm flex flex-col gap-1">
             <li
               onClick={() => navigate()}
-              className="cursor-pointer hover:text-slate-500 hover:underline"
+              className="font-semibold cursor-pointer hover:text-slate-300 hover:underline"
             >
               Home
             </li>
             <li
               onClick={() => navigate()}
-              className="cursor-pointer hover:text-slate-500 hover:underline"
+              className="font-semibold cursor-pointer hover:text-slate-300 hover:underline"
             >
               Drive
             </li>
             <li
               onClick={() => navigate()}
-              className="cursor-pointer hover:text-slate-500 hover:underline"
+              className="font-semibold cursor-pointer hover:text-slate-300 hover:underline"
             >
               Resources
             </li>
             <li
               onClick={() => navigate()}
-              className="cursor-pointer hover:text-slate-500 hover:underline"
+              className="font-semibold cursor-pointer hover:text-slate-300 hover:underline"
             >
               Feedback
             </li>
             <li
               onClick={() => navigate()}
-              className="cursor-pointer hover:text-slate-500 hover:underline"
+              className="font-semibold cursor-pointer hover:text-slate-300 hover:underline"
             >
               Contact Us
             </li>
             <li
               onClick={() => navigate()}
-              className="cursor-pointer hover:text-slate-500 hover:underline"
+              className="font-semibold cursor-pointer hover:text-slate-300 hover:underline"
             >
               About
             </li>
@@ -119,31 +119,31 @@ function Footer() {
           <ul className="font-normal text-white text-sm flex flex-col gap-1">
             <li
               onClick={() => navigate("/auth")}
-              className="cursor-pointer hover:text-slate-500 hover:underline"
+              className="font-semibold cursor-pointer hover:text-slate-300 hover:underline"
             >
               Register / Login
             </li>
             <li
               onClick={() => navigate()}
-              className="cursor-pointer hover:text-slate-500 hover:underline"
+              className="font-semibold cursor-pointer hover:text-slate-300 hover:underline"
             >
               Founders
             </li>
             <li
               onClick={() => navigate()}
-              className="cursor-pointer hover:text-slate-500 hover:underline"
+              className="font-semibold cursor-pointer hover:text-slate-300 hover:underline"
             >
               Social Media
             </li>
             <li
               onClick={() => navigate()}
-              className="cursor-pointer hover:text-slate-500 hover:underline"
+              className="font-semibold cursor-pointer hover:text-slate-300 hover:underline"
             >
               Privacy-Policy
             </li>
             <li
               onClick={() => navigate()}
-              className="cursor-pointer hover:text-slate-500 hover:underline"
+              className="font-semibold cursor-pointer hover:text-slate-300 hover:underline"
             >
               Admin Login
             </li>
@@ -176,10 +176,10 @@ function Footer() {
 
       {/* Footer Bottom */}
       <div className="w-full h-[10%] flex justify-center items-center p-2">
-        <p className="text-slate-200 text-xs -tracking-tighter">
+        <p className="text-slate-200 text-md font-semibold -tracking-tighter">
           pasaydan@2024 _{" "}
         </p>
-        <p className=" text-slate-200 text-xs -tracking-tighter">
+        <p className=" text-slate-200 text-xs -tracking-tighter font-semibold">
           All Rights Reserved
         </p>
       </div>

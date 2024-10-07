@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import pasaydanLogo from "../assets/pixelcut-export.png"; // Add the path to your logo
 
-const images = [
-  '/images/lp4.png',
-  '/images/lp2.png',
-  '/images/lp1.png',
-];
+const images = ["/images/lp4.png", "/images/lp2.png", "/images/lp1.png","/images/lp5.jpg"];
 
 const LandingPage = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -21,23 +17,27 @@ const LandingPage = () => {
     <div className="relative flex flex-col lg:flex-row min-h-screen bg-[#edf6f9]">
       {/* Left Section with solid color and text */}
       <div className="bg-[#edf6f9] text-[#032d60] lg:w-[40%] flex flex-col justify-center p-10 lg:p-20 space-y-6">
-        
         {/* Logo at the top */}
         <div className="flex justify-center">
-          <img src={pasaydanLogo} alt="Logo" className="h-16 w-16 rounded-full" />
+          <img
+            src={pasaydanLogo}
+            alt="Logo"
+            className="h-16 w-16 rounded-full"
+          />
         </div>
 
         {/* Marathi Styled Text */}
         <div className="text-center">
-          <h1 className="text-4xl lg:text-5xl font-bold italic" style={{ fontFamily: 'Marathi Calligraphy' }}>
+          <h1
+            className="text-4xl lg:text-5xl font-bold italic"
+            style={{ fontFamily: "Marathi Calligraphy" }}
+          >
             पसायदान
           </h1>
           <p className="mt-4 text-lg lg:text-2xl font-semibold">
             जो जे वांछिल, तो तें लाहो । प्राणिजात ॥
           </p>
-          <p className="text-sm italic mt-2">
-            ~ संत ज्ञानेश्वर महाराज ~
-          </p>
+          <p className="text-sm italic mt-2">~ संत ज्ञानेश्वर महाराज ~</p>
         </div>
 
         {/* Motivational Text */}

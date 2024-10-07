@@ -9,10 +9,11 @@ export default {
       },
       colors: {
         navFontColor: "#000000", // Correct color value for text-slate-700
+        siteBlue: "#4361ee",
       },
     },
   },
   plugins: [
-    require('tailwind-scrollbar')({ nocompatible: true }), // Add configuration to enable modern features
+    require("tailwind-scrollbar")({ nocompatible: true }), // Add configuration to enable modern features
   ],
 };
