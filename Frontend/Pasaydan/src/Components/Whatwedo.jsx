@@ -2,7 +2,7 @@ import React from "react";
 
 const WhatWeDo = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center py-16">
+    <div className="min-h-screen bg-[#edf6f9] flex flex-col items-center justify-center py-16">
       <div className="w-[90%] bg-[#032d60] flex justify-between items-center flex-col lg:flex-row p-10 rounded-[30px]">
         
         {/* Left Side: Title and Subheading */}

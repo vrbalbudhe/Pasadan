@@ -47,7 +47,7 @@ function Footer() {
   }, []);
 
   return (
-    <div className="w-full bg-siteBlue md:h-80 h-full md:flex md:flex-col md:justify-center items-center md:p-2 p-0">
+    <div className="w-full bg-[#032d60] md:h-80 h-full md:flex md:flex-col md:justify-center items-center md:p-2 p-0">
       <div className="w-full h-[80%] md:flex justify-center items-center">
         {/* Logo and Title Section */}
         <div className="w-full md:w-[30%] flex flex-col justify-center items-end h-full p-2">
